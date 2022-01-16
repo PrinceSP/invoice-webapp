@@ -1,0 +1,51 @@
+.newNote-container{
+  margin:20px;
+  padding: 20px;
+  -webkit-box-shadow:0 0 15px -10px rgba(0,0,0,0.75);
+  box-shadow:0 0 15px -10px rgba(0,0,0,0.75);
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+
+  h3{
+    font-weight:600;
+    font-size:1.437em;
+  }
+
+  table{
+    border-collapse: collapse;
+    .table-header{
+      margin-bottom:35px;
+    }
+    tr{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom:28px;
+      th{
+        font-size:1em;
+        font-weight:400;
+        letter-spacing: 2px;
+        width:200px;
+        display: flex;
+        justify-content: flex-start;
+      }
+      td{
+        font-size:0.875em;
+        min-width:200px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .blur{
+        color:#9F6E6E;
+      }
+    }
+  }
+}
+
+.profileIcon{
+  height:40px;
+  width:40px;
+  border-radius:50%;
+  margin-right: 12px;
+}
