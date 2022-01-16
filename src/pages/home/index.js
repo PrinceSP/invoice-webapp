@@ -7,9 +7,9 @@ const Home = (props) => {
     <div className="main-container">
       <TopBar profile={true}/>
       <div className="container">
-        <SideBar/>
+        <SideBar active="home"/>
         <div className="others">
-          others
+          <h1>Selamat Datang, Charlie!</h1>
         </div>
       </div>
     </div>
