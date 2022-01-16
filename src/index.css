@@ -2,11 +2,11 @@
   display:flex;
   /* align-items:center;
   justify-content:space-between; */
-  padding: 0 20px;
+  padding: 0 20px 0 0;
 }
 
 .others{
-  flex:4;
+  flex:5;
   height:550px;
   background-color: cyan;
   padding: 0 20px;
