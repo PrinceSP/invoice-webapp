@@ -4,6 +4,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
 import ReceiptLongOutlinedIcon from '@mui/icons-material/ReceiptLongOutlined';
+import {Link} from 'react-router-dom'
 
 const SideBar = ({active}) => {
   return (
@@ -11,14 +12,14 @@ const SideBar = ({active}) => {
       <div className="sidebar-wrapper">
         <div className="side-menu">
           <ul>
-            <li className={`sidebar-listItem ${active==="home" && 'active'}`}>
+            <Link to="/" className={`sidebar-listItem ${active==="home" && 'active'}`}>
               <HomeOutlinedIcon className="sidebarIcon"/>
               <p>Beranda</p>
-            </li>
-            <li className={`sidebar-listItem ${active==="user" && 'active'}`}>
+            </Link>
+            <Link to="/UserLists" className={`sidebar-listItem ${active==="user" && 'active'}`}>
               <PersonOutlineOutlinedIcon className="sidebarIcon"/>
               <p>Pengguna</p>
-            </li>
+            </Link>
             <li className={`sidebar-listItem ${active==="notes" && 'active'}`}>
               <AssessmentOutlinedIcon className="sidebarIcon"/>
               <p>Cek Nota</p>
