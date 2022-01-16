@@ -11,7 +11,7 @@ const SideBar = (props) => {
       <div className="sidebar-wrapper">
         <div className="side-menu">
           <ul>
-            <li className="sidebar-listItem">
+            <li className="sidebar-listItem active">
               <HomeOutlinedIcon className="sidebarIcon"/>
               <p>Beranda</p>
             </li>

@@ -1,6 +1,9 @@
 .sidebar{
   flex:1;
-  height:calc(100vh - 50px);
+  height:calc(100vh - 61px);
+  background-color: rgba(219, 242, 255, .2);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 
   .sidebar-wrapper{
     padding:20px 0;
@@ -14,6 +17,7 @@
     justify-content:flex-start;
     margin: 15px 0;
     cursor:pointer;
+    border-radius:15px;
     width:120px;
     height:41px;
     padding:0 8px;
@@ -29,12 +33,15 @@
   }
 }
 
-
-
-
-ul>li:hover{
+ul>.sidebar-listItem:hover{
   background-color: #DBF2FF;
-  border:none;
+  border:solid 1px #DBC2FF;
   border-radius:15px;
   transition:350ms background-color ease-in-out;
+}
+
+.active{
+  background-color: #DBF2FA;
+  border:solid 1px #DBC2FF;
+  border-radius:15px;
 }
