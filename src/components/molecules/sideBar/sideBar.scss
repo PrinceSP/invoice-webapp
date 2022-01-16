@@ -1,6 +1,6 @@
 .sidebar{
   flex:1;
-  height:calc(100vh - 61px);
+  min-height:calc(100vh - 61px);
   background-color: rgba(219, 242, 255, .2);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;

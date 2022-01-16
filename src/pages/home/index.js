@@ -1,5 +1,5 @@
 import React from 'react'
-import {TopBar,SideBar} from '../../components'
+import {TopBar,SideBar,Chart,NewNotes} from '../../components'
 import './home.scss'
 
 const Home = (props) => {
@@ -10,6 +10,8 @@ const Home = (props) => {
         <SideBar active="home"/>
         <div className="others">
           <h1>Selamat Datang, Charlie!</h1>
+          <Chart/>
+          <NewNotes/>
         </div>
       </div>
     </div>
