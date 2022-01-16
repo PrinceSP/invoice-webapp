@@ -1,9 +1,17 @@
-import {TopBar} from './components'
+import {TopBar,SideBar} from './components'
 import './index.css'
 
 const App = ()=> {
   return (
-    <TopBar profile={true}/>
+    <div>
+      <TopBar profile={true}/>
+      <div className="container">
+        <SideBar/>
+        <div className="others">
+          others
+        </div>
+      </div>
+    </div>
   );
 }
 

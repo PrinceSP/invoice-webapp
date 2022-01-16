@@ -1,0 +1,24 @@
+.sidebar{
+  flex:1;
+  height:100%;
+  // padding: 0 20px;
+}
+
+ul > li{
+  text-decoration:none;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin: 15px 0;
+  cursor:pointer;
+  width:180px;
+  height:41px;
+  padding:0 8px;
+}
+
+ul>li:hover{
+  background-color: #DBF2FF;
+  border:none;
+  border-radius:15px;
+}

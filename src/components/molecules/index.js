@@ -1,3 +1,4 @@
 import TopBar from './topBar'
+import SideBar from './sideBar'
 
-export {TopBar}
+export {TopBar,SideBar}
