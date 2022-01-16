@@ -1,9 +1,9 @@
-import {Home} from './pages'
+import Routing from './routes'
 import './index.css'
 
 const App = ()=> {
   return (
-    <Home/>
+    <Routing/>
   );
 }
 
