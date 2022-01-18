@@ -20,10 +20,10 @@ const SideBar = ({active}) => {
               <PersonOutlineOutlinedIcon className="sidebarIcon"/>
               <p>Pengguna</p>
             </Link>
-            <li className={`sidebar-listItem ${active==="notes" && 'active'}`}>
+            <Link to="/NotePage" className={`sidebar-listItem ${active==="notes" && 'active'}`}>
               <AssessmentOutlinedIcon className="sidebarIcon"/>
               <p>Cek Nota</p>
-            </li>
+            </Link>
             <li className={`sidebar-listItem ${active==="store" && 'active'}`}>
               <ReceiptLongOutlinedIcon className="sidebarIcon"/>
               <p>Cek Gudang</p>

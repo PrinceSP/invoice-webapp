@@ -1,0 +1,22 @@
+.reset,.delete,.details{
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  cursor:pointer;
+  border:none;
+  color:#fff;
+  border-radius:6px;
+  height:31px;
+  width:70px;
+}
+
+.reset{
+  background-color: #7CB052;
+}
+
+.delete{
+  background-color: #AE4E30;
+  margin-right:11px;
+}
+
+.details{
+  background-color:#4F74F9;
+}
