@@ -1,6 +1,12 @@
 stages:
   - build
   - test
+  - install
+
+install:
+  stages: install
+  script:
+    - npm install
 
 build:
   stage: build

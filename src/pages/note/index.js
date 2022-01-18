@@ -1,21 +1,30 @@
 import React from 'react'
-import {TopBar,SideBar} from '../../components'
+import {TopBar,SideBar,Button} from '../../components'
 import "./note.scss"
+import SearchIcon from '@mui/icons-material/Search';
 
 const NotePage = (props) => {
+  const Search = ()=>{
+    <SearchIcon/>
+  }
   return (
     <div className="main-container">
       <TopBar profile={true}/>
       <div className="container">
         <SideBar active="notes"/>
         <div className="others">
-          <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
-          <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
+          <div className="header">
+            <div>
+              <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
+              <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
+            </div>
+            <Button name="+Nota Baru"/>
+          </div>
           <form>
             <input
               type="text"
               id="header-search"
-              placeholder="Search blog posts"
+              placeholder={`${<SearchIcon/>} Search blog posts`}
               name="search"/>
           </form>
         </div>
