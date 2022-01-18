@@ -6,27 +6,37 @@
   position:sticky;
   top:0;
   z-index:999;
-}
 
-.topbar-wrapper{
-  height:100%;
-  padding: 0 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+  .topbar-wrapper{
+    height:100%;
+    padding: 0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-.logo{
-  font-family: 'Poppins', sans-serif;
-  font-weight:bold;
-  font-size:1.5em;
-  color:darkblue;
-  cursor:pointer;
+    .rightComponent{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      min-width:150px;
+    }
+  }
+
+  .logo{
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+    font-size:1.5em;
+    color:darkblue;
+    cursor:pointer;
+  }
 }
 
 .profileIcon{
   height:40px;
   width:40px;
   border-radius:50%;
-  background-color:#a4a4a4;
+  background-color:#FFE162;
+  display: flex;
+  align-items:center;
+  justify-content: center;
 }

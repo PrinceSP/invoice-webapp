@@ -1,50 +1,56 @@
 import React from 'react'
-import {TopBar,SideBar} from '../../components'
+import {TopBar,SideBar,Button} from '../../components'
 import './user.scss'
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGridPro, GridToolbar } from '@mui/x-data-grid-pro';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
-    field: 'firstName',
-    headerName: 'First name',
+    field: 'name',
+    headerName: 'Nama Pengguna',
     width: 150,
-    editable: true,
+    editable: false,
   },
   {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: true,
+    field: 'email',
+    headerName: 'Email',
+    width: 200,
+    editable: false,
   },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: true,
+    field: 'password',
+    headerName: 'Sandi',
+    width: 190,
+    editable: false,
+    renderCell: (params) => (
+      <Button name="Reset" className="reset"/>
+    ),
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
+    field: 'action',
+    headerName: 'Aksi',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+    width: 220,
+    renderCell: (params) => (
+      <div>
+        <Button name="Delete" className="delete"/>
+        <Button name="Details" className="details"/>
+      </div>
+    ),
   },
 ];
 
 const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: '-', age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  { id: 1, name: 'Snow', email: 'Jon@gmail.com'},
+  { id: 2, name: 'Lannister', email: 'Cersei@gmail.com'},
+  { id: 3, name: 'Lannister', email: 'Jaime@gmail.com'},
+  { id: 4, name: 'Stark', email: 'Arya@gmail.com'},
+  { id: 5, name: 'Targaryen', email: 'Daenerys@gmail.com'},
+  { id: 6, name: 'Melisandre', email: 'ladymelisandre@gmail.com'},
+  { id: 7, name: 'Clifford', email: 'Ferrara@gmail.com'},
+  { id: 8, name: 'Frances', email: 'Rossini@gmail.com'},
+  { id: 9, name: 'Roxie', email: 'Harvey@gmail.com'},
 ];
 
 const UserLists = (props) => {
@@ -55,7 +61,10 @@ const UserLists = (props) => {
         <SideBar active="user"/>
         <div className="others">
           <div style={{ height: 400, width: '100%', marginTop:20 }}>
-            <DataGrid
+            <DataGridPro
+              components={{
+                Toolbar: GridToolbar,
+              }}
               rows={rows}
               columns={columns}
               pageSize={5}

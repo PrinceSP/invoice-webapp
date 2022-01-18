@@ -1,4 +1,5 @@
 import React from 'react'
+import PersonIcon from '@mui/icons-material/Person';
 import "./newnotes.scss"
 
 const NewNotes = (props) => {
@@ -14,7 +15,9 @@ const NewNotes = (props) => {
         </tr>
         <tr>
           <td className='username'>
-            <div className="profileIcon"/>
+            <div className="profileIcon">
+                <PersonIcon fill="#fff"/>
+            </div>
             <p>Dinda Gledis Mamahit</p>
           </td>
           <td className='blurText'>23 mei 2021</td>

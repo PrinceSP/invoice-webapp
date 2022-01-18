@@ -1,5 +1,8 @@
 import React from 'react'
 import './topBar.scss'
+import PersonIcon from '@mui/icons-material/Person';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const TopBar = (props) => {
   return (
@@ -8,9 +11,16 @@ const TopBar = (props) => {
         <div>
           <span className="logo">Invoice Admin</span>
         </div>
-        {
-          props.profile && <div className="profileIcon"/>
-        }
+        <div className="rightComponent">
+          <NotificationsNoneIcon/>
+          <SettingsIcon/>
+          {
+            props.profile &&
+              <div className="profileIcon">
+                  <PersonIcon fill="#fff"/>
+              </div>
+          }
+        </div>
       </div>
     </div>
   )
