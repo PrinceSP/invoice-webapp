@@ -1,5 +1,5 @@
 import React from 'react'
-import {TopBar,SideBar,Button,DatasGrid} from '../../components'
+import {TopBar,SideBar,DatasGrid} from '../../components'
 import './user.scss'
 
 const UserLists = (props) => {
