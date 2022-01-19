@@ -5,7 +5,7 @@ stages:
 
 deploy:
   image: node:14
-  stages: deploy
+  stage: deploy
   script:
     - npm install
 
