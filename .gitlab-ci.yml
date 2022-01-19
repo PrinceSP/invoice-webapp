@@ -1,6 +1,6 @@
 stages:
   - build
-  - test
+  # - test
   - deploy
 
 deploy:
@@ -14,9 +14,9 @@ build:
   stage: build
   script:
     - npm build
-
-test:
-  image: node:14
-  stage: test
-  script:
-    - npm test
+# 
+# test:
+#   image: node:14
+#   stage: test
+#   script:
+#     - npm test
