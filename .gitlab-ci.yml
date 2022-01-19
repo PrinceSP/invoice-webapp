@@ -21,5 +21,3 @@ test:
   script:
     - npm install
     - npm test
-  only:
-        - merge_requests
