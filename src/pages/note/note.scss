@@ -38,11 +38,11 @@
 input{
   width:80%;
   height:42px;
-  padding-left:17px;
+  padding-left:1.0625rem;
   border-radius:4px;
   border: 1px solid #00D1FF;
-
   &::placeholder{
   color:#948B8B;
+  letter-spacing:0.0625rem;
   }
 }
