@@ -1,15 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {TopBar,SideBar,Button} from '../../components'
 import "./note.scss"
-// import SearchIcon from '@mui/icons-material/Search';
 
-const NotePage = (props) => {
-  // const Search = ()=>{
-  //   <SearchIcon/>
-  // }
-  const modalToggle=()=>{
-    alert('it works')
+const NotePage = () => {
+  const [toggle,setToggle] = useState(false)
+
+  const toggleModal = (value)=>{
+    if (value==true) {
+      setToggle(true)
+    }else{
+      setToggle(false)
+    }
   }
+
   return (
     <div className="main-container">
       <TopBar profile={true}/>
@@ -21,10 +24,18 @@ const NotePage = (props) => {
               <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
               <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
             </div>
-            <Button name="+Nota Baru" onClick={modalToggle}/>
+            <Button name="+Nota Baru" onClick={()=>toggleModal(true)}/>
+          </div>
+          <div className="modalBox-container" style={{display:toggle===true?'block':'none'}}>
+            <Button name="X" onClick={()=>toggleModal(false)}/>
+            <div>
+              <h3>Buat nota baru</h3>
+              <form>
+
+              </form>
+            </div>
           </div>
           <form>
-            {/**<SearchIcon style={{position:'absolute',left:'15.5rem',marginTop:8}}/>**/}
             <input
               type="text"
               id="header-search"
