@@ -3,12 +3,6 @@ stages:
   - test
   - deploy
 
-deploy:
-  image: node:14
-  stage: deploy
-  script:
-    - npm install
-
 test:
   image: node:14
   stage: test
@@ -25,6 +19,12 @@ build:
   artifacts:
     paths:
       - build/
+
+deploy:
+  image: node:14
+  stage: deploy
+  script:
+    - npm install
 
 trigger_pipeline:
   stage: deploy

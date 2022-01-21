@@ -25,8 +25,8 @@ const NotePage = () => {
               <form>
 
               </form>
-              <Button name="X" onClick={()=>toggleModal(false)}/>
             </div>
+            <Button name="X" onClick={()=>toggleModal(false)}/>
           </div>
           <div className="header">
             <div>
