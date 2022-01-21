@@ -1,17 +1,17 @@
+image: node:latest
+
 stages:
   - build
   - test
   - deploy
 
 test:
-  image: node:14
   stage: test
   script:
     - npm install
     - npm test
 
 build:
-  image: node:14
   stage: build
   script:
     - npm install
@@ -21,7 +21,6 @@ build:
       - build/
 
 deploy:
-  image: node:14
   stage: deploy
   script:
     - npm install
@@ -35,7 +34,6 @@ trigger_pipeline:
 
 netlify:
   stage: deploy
-  image: node:14
   script:
       - npm install -g netlify-cli
       - netlify deploy --dir=build --prod
