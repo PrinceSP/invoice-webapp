@@ -6,7 +6,7 @@ const NotePage = () => {
   const [toggle,setToggle] = useState(false)
 
   const toggleModal = (value)=>{
-    if (value==true) {
+    if (value===true) {
       setToggle(true)
     }else{
       setToggle(false)

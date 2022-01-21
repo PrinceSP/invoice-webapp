@@ -13,6 +13,7 @@ build:
   image: node:14
   stage: build
   script:
+    - npm install
     - npm build
 
 test:
@@ -28,3 +29,10 @@ trigger_pipeline:
     - 'curl --fail --request POST --form token=7ae43062ddd46e803654ae33cd4885 --form ref=master https://gitlab.com/api/v4/projects/32878876/trigger/pipeline"'
   rules:
     - if: $CI_COMMIT_TAG
+
+netlify:
+  stage: deploy
+  image: node:14
+  script:
+      - npm install -g netlify-cli
+      - netlify deploy --dir=build --prod
