@@ -19,13 +19,6 @@ const NotePage = () => {
       <div className="container">
         <SideBar active="notes"/>
         <div className="others">
-          <div className="header">
-            <div>
-              <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
-              <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
-            </div>
-            <Button name="+Nota Baru" onClick={()=>toggleModal(true)}/>
-          </div>
           <div className="modalBox-container" style={{display:toggle===true?'block':'none'}}>
             <Button name="X" onClick={()=>toggleModal(false)}/>
             <div>
@@ -34,6 +27,13 @@ const NotePage = () => {
 
               </form>
             </div>
+          </div>
+          <div className="header">
+            <div>
+              <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
+              <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
+            </div>
+            <Button name="+Nota Baru" onClick={()=>toggleModal(true)}/>
           </div>
           <form>
             <input
