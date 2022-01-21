@@ -19,13 +19,13 @@ const NotePage = () => {
       <div className="container">
         <SideBar active="notes"/>
         <div className="others">
-          <div className="modalBox-container" style={{display:toggle===true?'block':'none'}}>
-            <Button name="X" onClick={()=>toggleModal(false)}/>
+          <div className="modalBox-container" style={{display:toggle===true?'flex':'none'}}>
             <div>
               <h3>Buat nota baru</h3>
               <form>
 
               </form>
+              <Button name="X" onClick={()=>toggleModal(false)}/>
             </div>
           </div>
           <div className="header">
