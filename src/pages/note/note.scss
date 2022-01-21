@@ -43,16 +43,28 @@
     padding: 2.5rem;
     justify-content:space-between;
 
-    div{
-      form{
-        height:100%;
-        width:35.315rem;
-        background: #FFFFFF;
-        box-shadow: -5px 0px 25px rgba(36, 255, 0, 0.53);
-        border-radius: 25px 0px 0px 25px;
+    form{
+      position: absolute;
+      top:0;
+      right:0;
+      height:100%;
+      width:35.315rem;
+      background: #FFFFFF;
+      box-shadow: -5px 0px 25px rgba(36, 255, 0, 0.53);
+      border-radius: 25px 0px 0px 25px;
+      padding:1.5rem 1rem 0rem 1rem;
+      ul{
+        padding:0;
+        li{
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
     Button{
+      position:absolute;
+      right:1.5rem;
+      top:1.5rem;
       border:none;
       border-radius:50%;
       width:50px;
@@ -60,6 +72,8 @@
       font-size:1.5rem;
       color:#fff;
       background-color:#f00;
+      z-index:1;
+      cursor: pointer;
     }
   }
 }

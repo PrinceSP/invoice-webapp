@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {TopBar,SideBar,Button} from '../../components'
+import {TopBar,SideBar,Button,Input} from '../../components'
 import "./note.scss"
 
 const NotePage = () => {
@@ -20,12 +20,39 @@ const NotePage = () => {
         <SideBar active="notes"/>
         <div className="others">
           <div className="modalBox-container" style={{display:toggle===true?'flex':'none'}}>
-            <div>
+            <form>
               <h3>Buat nota baru</h3>
-              <form>
-
-              </form>
-            </div>
+              <ul>
+                <li>
+                  <Input label="No." holder="01" name="no" width={88}/>
+                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={360}/>
+                </li>
+                <li>
+                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={275}/>
+                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={184}/>
+                </li>
+                <li>
+                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={532}/>
+                </li>
+                <li>
+                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={532}/>
+                </li>
+                <li>
+                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={532}/>
+                </li>
+                <li>
+                  <Input label="Suku Cadang" holder="Kompressor" name="suku_cadang" width={532}/>
+                </li>
+                <li>
+                  <Input label="Jenis Freon:" type="checkbox" height={20} width={20}/>
+                  <Input type="checkbox" height={20} width={20}/>
+                  <Input type="checkbox" height={20} width={20}/>
+                </li>
+                <li>
+                  <Input label="Jasa Layanan" holder="300,000" name="jasa_layanan" width={532}/>
+                </li>
+              </ul>
+            </form>
             <Button name="X" onClick={()=>toggleModal(false)}/>
           </div>
           <div className="header">
