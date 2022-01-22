@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {TopBar,SideBar,Button,Input} from '../../components'
+import {TopBar,SideBar,Button,Input,Gap,CheckBox} from '../../components'
 import "./note.scss"
 
 const NotePage = () => {
@@ -24,30 +24,31 @@ const NotePage = () => {
               <h3>Buat nota baru</h3>
               <ul>
                 <li>
-                  <Input label="No." holder="01" name="no" width={88}/>
-                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={360}/>
+                  <Input label="No." holder="01" name="no" width={460}/>
+                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={460}/>
                 </li>
+                <Gap height={20}/>
                 <li>
-                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={275}/>
-                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={184}/>
+                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={460}/>
+                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={460}/>
                 </li>
+                <Gap height={20}/>
                 <li>
-                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={532}/>
+                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={460}/>
+                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={460}/>
                 </li>
+                <Gap height={20}/>
                 <li>
-                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={532}/>
+                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={460}/>
+                  <Input label="Suku Cadang" holder="Kompressor" name="suku_cadang" width={460}/>
                 </li>
+                <Gap height={20}/>
                 <li>
-                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={532}/>
+                  <CheckBox label="Klea" name="checkbox" height={20} width={20}/>
+                  <CheckBox label="Bailian" name="checkbox" height={20} width={20}/>
+                  <CheckBox label="Dupoet" name="checkbox" height={20} width={20}/>
                 </li>
-                <li>
-                  <Input label="Suku Cadang" holder="Kompressor" name="suku_cadang" width={532}/>
-                </li>
-                <li>
-                  <Input label="Jenis Freon:" type="checkbox" height={20} width={20}/>
-                  <Input type="checkbox" height={20} width={20}/>
-                  <Input type="checkbox" height={20} width={20}/>
-                </li>
+                <Gap height={20}/>
                 <li>
                   <Input label="Jasa Layanan" holder="300,000" name="jasa_layanan" width={532}/>
                 </li>
