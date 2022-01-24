@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import {Home, UserLists,NotePage} from '../pages'
+import {Home,UserLists,NotePage,Storage} from '../pages'
 
 const Routing = ()=>{
   return(
@@ -7,6 +7,7 @@ const Routing = ()=>{
       <Route path="/" element={<Home />} />
       <Route path="/UserLists" element={<UserLists />} />
       <Route path="/NotePage" element={<NotePage />} />
+      <Route path="/Storage" element={<Storage />} />
     </Routes>
   )
 }

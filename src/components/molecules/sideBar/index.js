@@ -24,10 +24,10 @@ const SideBar = ({active}) => {
               <AssessmentOutlinedIcon className="sidebarIcon"/>
               <p>Cek Nota</p>
             </Link>
-            <li className={`sidebar-listItem ${active==="store" && 'active'}`}>
+            <Link to="/Storage" className={`sidebar-listItem ${active==="store" && 'active'}`}>
               <ReceiptLongOutlinedIcon className="sidebarIcon"/>
               <p>Cek Gudang</p>
-            </li>
+            </Link>
           </ul>
         </div>
       </div>
