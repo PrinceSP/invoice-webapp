@@ -62,9 +62,19 @@
           display: flex;
           justify-content: space-between;
         }
+        .submit{
+          padding:13px 15px;
+          border-radius: 10px;
+          font-size: 1.25rem;
+          box-shadow: none;
+          background-color: #C9C104;
+          border:1px solid #a2b100;
+          color:#fff;
+          cursor:pointer;
+        }
       }
     }
-    Button{
+    .exitModal{
       position:absolute;
       right:1.5rem;
       top:1.5rem;

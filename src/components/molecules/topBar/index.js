@@ -13,7 +13,6 @@ const TopBar = (props) => {
         </div>
         <div className="rightComponent">
           <NotificationsNoneIcon/>
-          <SettingsIcon/>
           {
             props.profile &&
               <div className="profileIcon">

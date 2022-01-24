@@ -2,7 +2,7 @@ import React from 'react'
 
 const CheckBox = ({label,name,width,height}) => {
   return (
-    <div style={{display:'flex',justifyContent:'space-between'}}>
+    <div style={{display:'flex',justifyContent:'space-between',marginRight:15}}>
       <label>{label}</label>
       <input type='checkbox' style={{height,width,border:"1px solid #9DD6E7"}} name={name}/>
     </div>
