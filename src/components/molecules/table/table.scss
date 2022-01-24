@@ -1,0 +1,29 @@
+table{
+  border-collapse: collapse;
+  .table-header{
+    margin-bottom:35px;
+  }
+  tr{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:28px;
+    th{
+      font-size:1em;
+      font-weight:400;
+      letter-spacing: 2px;
+      width:200px;
+      display: flex;
+      justify-content: flex-start;
+    }
+    td{
+      font-size:0.875em;
+      min-width:200px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .blur{
+      color:#9F6E6E;
+    }
+  }
+}

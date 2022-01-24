@@ -1,0 +1,13 @@
+tr{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:28px;
+  th{
+    font-size:1em;
+    font-weight:400;
+    letter-spacing: 2px;
+    width:200px;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
