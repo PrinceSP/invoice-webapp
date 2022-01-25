@@ -3,7 +3,7 @@ import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import {Button} from '../../../components'
 import "./dataGrid.scss"
 
-const DatasGrid = (props) => {
+const DatasGrid = ({name=[],classes=[]}) => {
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
@@ -28,7 +28,7 @@ const DatasGrid = (props) => {
       width: 130,
       sortable: false,
       renderCell: (params) => (
-        <Button name="Reset" className="reset"/>
+        <Button name={name[0]} className={classes[0]}/>
       ),
     },
     {
@@ -41,8 +41,8 @@ const DatasGrid = (props) => {
       width: 220,
       renderCell: (params) => (
         <div>
-          <Button name="Delete" className="delete"/>
-          <Button name="Details" className="details"/>
+          <Button name={name[1]} className={classes[1]}/>
+          <Button name={name[2]} className={classes[2]}/>
         </div>
       ),
     },

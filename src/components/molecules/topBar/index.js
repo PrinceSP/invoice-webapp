@@ -2,7 +2,7 @@ import React from 'react'
 import './topBar.scss'
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import SettingsIcon from '@mui/icons-material/Settings';
 
 const TopBar = (props) => {
   return (
