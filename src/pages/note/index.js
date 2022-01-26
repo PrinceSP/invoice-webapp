@@ -55,7 +55,7 @@ const NotePage = () => {
                   </div>
                   <div>
                     <h1 style={{color:"#6989F8"}}>Total Pembayaran</h1>
-                    <p>Rp.145,230,00</p>
+                    <p className="totalPrice">Rp.145,230,00</p>
                     <Button type="submit" className="submit" name="Simpan Laporan"/>
                   </div>
                 </li>
