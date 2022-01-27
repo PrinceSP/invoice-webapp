@@ -38,4 +38,4 @@ netlify:
   image: node:14
   script:
       - npm install -g netlify-cli --unsafe-perm=true
-      - netlify deploy --site $a278b95a-9190-48ed-bdd7-f2c3e1ec23aa --auth $NJQi0jLX2ikuRldvh_A3pmFfRQnbdxeGlXx7dTK9r6s --dir build/ --prod
+      - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir build/ --prod

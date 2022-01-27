@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './topBar.scss'
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -9,7 +10,9 @@ const TopBar = (props) => {
     <div className="topbar-container">
       <div className="topbar-wrapper">
         <div>
-          <span className="logo">Invoice Admin</span>
+          <Link style={{textDecoration:'none'}} to="/">
+            <span className="logo">Invoice Admin</span>
+          </Link>
         </div>
         <div className="rightComponent">
           <NotificationsNoneIcon/>
