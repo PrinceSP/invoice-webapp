@@ -75,20 +75,16 @@
       height:35px;
       margin-bottom: 28px;
     }
-
-    .submit{
+    .login{
+      cursor:pointer;
+      border:none;
+      color:#fff;
+      border-radius:6px;
+      height:40px;
+      min-width:100px;
       width:100%;
-      .login{
-        cursor:pointer;
-        border:none;
-        color:#fff;
-        border-radius:6px;
-        height:40px;
-        min-width:100px;
-        width:100%;
-        background-color: #7CB052;
-        font-size:1em;
-      }
+      background-color: #7C77FF;
+      font-size:1em;
     }
   }
 }

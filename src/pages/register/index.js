@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import {Button,Footer} from '../../components'
 import {Link} from 'react-router-dom'
 import DatePicker from "react-datepicker";
@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const Register = (props) => {
   const [startDate, setStartDate] = useState(new Date());
+  const {username,fullname,email,password,profilePicture} = useRef();
   return (
     <div id="register-container">
       <div className="header">
@@ -24,15 +25,15 @@ const Register = (props) => {
           <div className="inputs-container">
             <div className="input-item">
               <label>Nama Lengkap</label>
-              <input placeholder="dinda gledis mamahit"/>
+              <input placeholder="dinda gledis mamahit" ref={username}/>
             </div>
             <div className="input-item">
               <label>Nama Pengguna</label>
-              <input placeholder="dindagledis1228"/>
+              <input placeholder="dindagledis1228" ref={fullname}/>
             </div>
           </div>
 
-          <div className="inputs-container">
+          {/*<div className="inputs-container">
             <div className="input-item">
               <label>Tanggal Lahir</label>
               <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
@@ -41,15 +42,15 @@ const Register = (props) => {
               <label>Alamat</label>
               <input placeholder="Enter your fullname"/>
             </div>
-          </div>
+          </div>*/}
           <div className="inputs-container">
             <div className="input-item">
               <label>Kata Sandi</label>
-              <input placeholder="Enter your username"/>
+              <input placeholder="Enter your username" ref={password}/>
             </div>
             <div className="input-item">
               <label>Konfirmasi kata Sandi</label>
-              <input placeholder="Enter your fullname"/>
+              <input placeholder="Enter your fullname" ref={password}/>
             </div>
           </div>
           <Link className="submit" to="/login">
