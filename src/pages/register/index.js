@@ -12,9 +12,9 @@ const Register = (props) => {
       <div className="header">
         <p>Invoice Admin</p>
         <div className="needAccount">
-          <p>Punya akun?</p>
+          <p>Sudah punya akun?</p>
           <Link to="/login">
-            <Button name="Masuk"/>
+            <Button name="Masuk" style={{backgroundColor:'#000',color:'#fff'}}/>
           </Link>
         </div>
       </div>
