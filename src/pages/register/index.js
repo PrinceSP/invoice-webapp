@@ -1,13 +1,39 @@
-import React,{useState,useRef} from 'react'
+import React,{useRef} from 'react'
 import {Button,Footer} from '../../components'
 import {Link} from 'react-router-dom'
 import DatePicker from "react-datepicker";
 import './register.scss'
 import "react-datepicker/dist/react-datepicker.css";
+import {AuthContext} from '../../context/AuthContext'
+import {registerCall} from '../../configs/apiCalls'
+import axios from 'axios'
 
 const Register = (props) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const {username,fullname,email,password,profilePicture} = useRef();
+  // const [startDate, setStartDate] = useState(new Date());
+
+  const username = useRef()
+  const fullname = useRef()
+  const email = useRef()
+  const profilePicture = useRef()
+  const password = useRef()
+  const passwordConfirm = useRef()
+  // const profilePicture = useRef();
+
+  const submitRegister = async (e)=>{
+    e.preventDefault()
+    if (passwordConfirm.current.value !== password.current.value) {
+      password.current.setCustomValidity("Kata sandi tidak sama!")
+    } else {
+      const user = {
+        username: username.current.value,
+        fullname: fullname.current.value,
+        email: email.current.value,
+        profilePicture: profilePicture.current.value,
+        password: password.current.value
+      }
+      registerCall(user)
+    }
+  }
   return (
     <div id="register-container">
       <div className="header">
@@ -21,7 +47,7 @@ const Register = (props) => {
       </div>
       <div className="signup-component">
         <h1>Daftar Akun Baru</h1>
-        <form>
+        <form onSubmit={submitRegister}>
           <div className="inputs-container">
             <div className="input-item">
               <label>Nama Lengkap</label>
@@ -40,23 +66,30 @@ const Register = (props) => {
             </div>
             <div className="input-item">
               <label>Alamat</label>
-              <input placeholder="Enter your fullname"/>
+              <input placeholder="Masukkan fullname"/>
             </div>
           </div>*/}
           <div className="inputs-container">
             <div className="input-item">
+              <label>Email</label>
+              <input placeholder="Masukkan email" ref={email}/>
+            </div>
+            <div className="input-item">
+              <label>Alamat</label>
+              <input placeholder="Masukkan alamat" ref={profilePicture}/>
+            </div>
+          </div>
+          <div className="inputs-container">
+            <div className="input-item">
               <label>Kata Sandi</label>
-              <input placeholder="Enter your username" ref={password}/>
+              <input placeholder="Masukkan username" ref={password}/>
             </div>
             <div className="input-item">
               <label>Konfirmasi kata Sandi</label>
-              <input placeholder="Enter your fullname" ref={password}/>
+              <input placeholder="Masukkan fullname" ref={passwordConfirm}/>
             </div>
           </div>
-          <Link className="submit" to="/login">
-            <Button className="register" name="Daftar"/>
-          </Link>
-
+          <Button className="register" name="Daftar"/>
         </form>
       </div>
       <Footer/>

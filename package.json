@@ -48,5 +48,5 @@
     ]
   },
   "devDependencies": {},
-  "proxy":"https://charlie-invoice.herokuapp.com"
+  "proxy":"https://charlie-invoice.herokuapp.com/api"
 }
