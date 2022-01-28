@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 export const loginCall = async (userCredentials,dispatch)=>{
   dispatch({type:"LOGIN_START"})
   try{
@@ -9,10 +10,11 @@ export const loginCall = async (userCredentials,dispatch)=>{
   }
 }
 
-export const registerCall = async (userCredentials)=>{
+export const registerCall = async (userCredentials,navigate)=>{
   try {
     await axios.post('/auth/register',userCredentials)
     console.log(userCredentials)
+    navigate('/login')
   } catch (e) {
     console.log(e);
   }

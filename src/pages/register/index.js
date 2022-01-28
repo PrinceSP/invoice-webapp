@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import {Button,Footer} from '../../components'
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import DatePicker from "react-datepicker";
 import './register.scss'
 import "react-datepicker/dist/react-datepicker.css";
@@ -17,6 +17,7 @@ const Register = (props) => {
   const profilePicture = useRef()
   const password = useRef()
   const passwordConfirm = useRef()
+  const navigate = useNavigate()
   // const profilePicture = useRef();
 
   const submitRegister = async (e)=>{
@@ -25,13 +26,20 @@ const Register = (props) => {
       password.current.setCustomValidity("Kata sandi tidak sama!")
     } else {
       const user = {
-        username: username.current.value,
         fullname: fullname.current.value,
+        username: username.current.value,
         email: email.current.value,
         profilePicture: profilePicture.current.value,
         password: password.current.value
       }
-      registerCall(user)
+      registerCall(user,navigate)
+      // try {
+      //   await axios.post('/auth/register',user)
+      //   console.log(user)
+      //   navigate('/login')
+      // } catch (e) {
+      //   console.log(e);
+      // }
     }
   }
   return (
@@ -51,11 +59,11 @@ const Register = (props) => {
           <div className="inputs-container">
             <div className="input-item">
               <label>Nama Lengkap</label>
-              <input placeholder="dinda gledis mamahit" ref={username}/>
+              <input placeholder="dinda gledis mamahit" ref={fullname}/>
             </div>
             <div className="input-item">
               <label>Nama Pengguna</label>
-              <input placeholder="dindagledis1228" ref={fullname}/>
+              <input placeholder="dindagledis1228" ref={username}/>
             </div>
           </div>
 

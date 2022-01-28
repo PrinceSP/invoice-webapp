@@ -11,7 +11,7 @@ const UserLists = (props) => {
     <div className="main-container">
       <TopBar profile={true}/>
       <div className="container">
-        <SideBar active="user"/>
+        <SideBar active="users"/>
         <div className="others">
           <p style={{fontSize:'1.5em',fontWeight:400}}>Pengaturan Pengguna</p>
           <DatasGrid name={buttonText} classes={classes}/>
