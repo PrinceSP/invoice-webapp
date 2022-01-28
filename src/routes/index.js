@@ -13,7 +13,7 @@ const Routing = ()=>{
       <Route path="/UserLists" element={<UserLists />} />
       <Route path="/NotePage" element={<NotePage />} />
       <Route path="/Storage" element={<Storage />} />
-      <Route path="/Profile" element={<Profile />} />
+      <Route path="/Profile/:username" element={<Profile />} />
     </Routes>
   )
 }

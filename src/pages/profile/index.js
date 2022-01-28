@@ -11,8 +11,9 @@ const Profile = (props) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/user/username=${username}`);
+      const res = await axios.get(`/user?username=${username}`);
       setUser(res.data);
+      console.log(res.data);
     };
     fetchUser();
   }, [username]);
@@ -23,7 +24,7 @@ const Profile = (props) => {
         <SideBar active="user"/>
         <div className="others">
           <div>
-            {user.username}
+            <h1>{user.fullname}</h1>
           </div>
         </div>
       </div>
