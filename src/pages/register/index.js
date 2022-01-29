@@ -1,12 +1,10 @@
 import React,{useRef} from 'react'
 import {Button,Footer} from '../../components'
 import {Link,useNavigate} from 'react-router-dom'
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import './register.scss'
-import "react-datepicker/dist/react-datepicker.css";
-import {AuthContext} from '../../context/AuthContext'
+// import "react-datepicker/dist/react-datepicker.css";
 import {registerCall} from '../../configs/apiCalls'
-import axios from 'axios'
 
 const Register = (props) => {
   // const [startDate, setStartDate] = useState(new Date());
@@ -33,13 +31,6 @@ const Register = (props) => {
         password: password.current.value
       }
       registerCall(user,navigate)
-      // try {
-      //   await axios.post('/auth/register',user)
-      //   console.log(user)
-      //   navigate('/login')
-      // } catch (e) {
-      //   console.log(e);
-      // }
     }
   }
   return (

@@ -8,7 +8,7 @@ import {loginCall} from '../../configs/apiCalls'
 const Login = (props) => {
   const username = useRef()
   const password = useRef()
-  const { user, isFetching, error, dispatch } = useContext(AuthContext);
+  const {isFetching, dispatch} = useContext(AuthContext);
   const submit=(e)=>{
     e.preventDefault()
     loginCall({username:username.current.value,password:password.current.value},dispatch)

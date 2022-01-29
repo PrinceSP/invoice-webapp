@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import {TopBar,SideBar,Chart,NewNotes} from '../../components'
+import {TopBar,SideBar} from '../../components'
 import './profile.scss'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
