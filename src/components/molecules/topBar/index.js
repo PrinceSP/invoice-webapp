@@ -1,27 +1,50 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import './topBar.scss'
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-// import SettingsIcon from '@mui/icons-material/Settings';
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 const TopBar = (props) => {
+  const [toggle,setToggle] = useState(false)
+
+  const toggleModal = (value)=>{
+    if (value===true) {
+      setToggle(true)
+    }else{
+      setToggle(false)
+    }
+  }
   return (
     <div className="topbar-container">
       <div className="topbar-wrapper">
+        <span style={{backgroundColor:'transparent',width:'100vw',height:'100vh',position:'absolute',top:0,zIndex:-1}} onClick={()=>toggleModal(false)}></span>
         <div>
           <Link style={{textDecoration:'none'}} to="/">
             <span className="logo">Invoice Admin</span>
           </Link>
         </div>
         <div className="rightComponent">
-          <NotificationsNoneIcon/>
+          <NotificationsNoneIcon className="icon"/>
           {
             props.profile &&
               <div className="profileIcon">
-                  <PersonIcon fill="#fff"/>
+                  <PersonIcon fill="#fff" className="icon" onClick={()=>toggleModal(true)}/>
               </div>
           }
+          <div className="settingModal" style={{display:toggle===true?'flex':'none'}}>
+            <ul>
+              <li>
+                <SettingsOutlinedIcon/>
+                <p>Settings</p>
+              </li>
+              <li>
+                <ExitToAppOutlinedIcon/>
+                <p>Sign Out</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
