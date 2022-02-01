@@ -11,7 +11,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/user?username=${username}`);
+      const res = await axios.get(`https://charlie-invoice.herokuapp.com/api/user?username=${username}`);
       setUser(res.data);
       console.log(res.data);
     };

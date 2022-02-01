@@ -35,7 +35,6 @@ const Login = (props) => {
             <Link className="link" to="/login">lupa sandi?</Link>
           </div>
           <input placeholder="Enter your password" ref={password}/>
-
           <Button className="login" name={isFetching ? "Loading..." : "Masuk"} type="submit"/>
         </form>
       </div>
