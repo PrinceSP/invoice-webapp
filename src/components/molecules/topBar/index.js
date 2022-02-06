@@ -19,7 +19,7 @@ const TopBar = (props) => {
   return (
     <div className="topbar-container">
       <div className="topbar-wrapper">
-        <span style={{backgroundColor:'transparent',width:'100vw',height:'100vh',position:'absolute',top:0,zIndex:-1}} onClick={()=>toggleModal(false)}></span>
+        {/**<span style={{backgroundColor:'transparent',width:'100vw',height:'100vh',position:'absolute',top:0,zIndex:-1}} onClick={()=>toggleModal(false)}></span>**/}
         <div>
           <Link style={{textDecoration:'none'}} to="/">
             <span className="logo">Invoice Admin</span>
