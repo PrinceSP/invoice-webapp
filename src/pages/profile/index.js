@@ -1,22 +1,12 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useContext} from 'react'
 import {TopBar,SideBar} from '../../components'
 import './profile.scss'
-import axios from 'axios'
 import {useParams} from 'react-router-dom'
-
+import {AuthContext} from '../../context/AuthContext'
 
 const Profile = (props) => {
-  const [user,setUser] = useState({})
-  const username = useParams().username;
+  const {user} = useContext(AuthContext)
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(`https://charlie-invoice.herokuapp.com/api/user?username=${username}`);
-      setUser(res.data);
-      console.log(res.data);
-    };
-    fetchUser();
-  }, [username]);
   return (
     <div className="profile-page">
       <TopBar profile={true}/>

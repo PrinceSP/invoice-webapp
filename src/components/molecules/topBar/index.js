@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import {Link} from 'react-router-dom'
 import './topBar.scss'
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import {AuthContext} from '../../../context/AuthContext'
 
-const TopBar = (props) => {
+const TopBar = () => {
   const [toggle,setToggle] = useState(false)
+  const {user} = useContext(AuthContext)
 
   const toggleModal = (value)=>{
     if (value===true) {
@@ -28,8 +30,7 @@ const TopBar = (props) => {
         <div className="rightComponent">
           <NotificationsNoneIcon className="icon"/>
           {
-            props.profile &&
-              <div className="profileIcon">
+            user.profilePicture ? <img className="profileIcon icon" src={`data:image/png;base64,${user.profilePicture}`}/> : <div className="profileIcon">
                   <PersonIcon fill="#fff" className="icon" onClick={()=>toggleModal(true)}/>
               </div>
           }

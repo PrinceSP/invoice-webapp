@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export const loginCall = async (userCredentials,dispatch)=>{
   dispatch({type:"LOGIN_START"})
   try{
@@ -24,10 +22,23 @@ export const loginCall = async (userCredentials,dispatch)=>{
 
 export const registerCall = async (userCredentials,navigate)=>{
   try {
-    await axios.post('/auth/register',userCredentials)
-    console.log(userCredentials)
-    navigate('/login')
+    const options = {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userCredentials)
+    }
+    const req = await fetch('/auth/register',options)
+    const results = await req.json()
+    if (req.status === 200) {
+      setTimeout(()=>{
+        navigate('/login')
+      },1000)
+    }
   } catch (e) {
     console.log(e);
+    return e;
   }
 }
