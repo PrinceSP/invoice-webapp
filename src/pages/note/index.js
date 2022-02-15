@@ -36,8 +36,6 @@ const NotePage = () => {
     invoiceCall()
   },[])
 
-  console.log(invoices);
-
   return (
     <div className="main-container">
       <TopBar profile={true}/>
@@ -65,8 +63,11 @@ const NotePage = () => {
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <Input label="Suku Cadang" holder="Kompressor" name="suku_cadang" width={460} height={35}/>
-                  <Input label="Jasa Layanan" holder="300,000" name="jasa_layanan" width={460} height={35}/>
+                  <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                    <Input label="Suku Cadang" holder="300,000" name="jasa_layanan" width={307} height={35}/>
+                    <Input label="Harga Suku Cadang" holder="300,000" name="jasa_layanan" width={307} height={35}/>
+                  </div>
+                  <Input label="Jasa Layanan" holder="Kompressor" name="suku_cadang" width={307} height={35}/>
                 </li>
                 <Gap height={20}/>
                 <li style={{display:'flex'}}>
@@ -102,6 +103,28 @@ const NotePage = () => {
               placeholder={`Search blog posts`}
               name="search"/>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Tanggal</th>
+                <th>Konsumer</th>
+                <th>Total</th>
+                <th>Opsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {invoices.map(item=>(
+                <tr key={item._id}>
+                  <td id="id">{item.id}</td>
+                  <td>{item.date}</td>
+                  <td>{item.client}</td>
+                  <td>{item.diagnosis}</td>
+                  <td><Button type="button" name="Lihat Detail"/></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
