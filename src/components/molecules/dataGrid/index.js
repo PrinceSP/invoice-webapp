@@ -5,13 +5,13 @@ import "./dataGrid.scss"
 
 const DatasGrid = ({name=[],classes=[],items}) => {
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', headerName: 'No', width: 90 },
     {
       field: 'fullname',
       headerName: 'Nama Pengguna',
       align:'center',
       headerAlign:'center',
-      width: 300,
+      width: 250,
     },
     {
       field: 'email',

@@ -1,9 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {TopBar,SideBar,Button,Input,Gap,CheckBox} from '../../components'
 import "./note.scss"
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
+  const [invoices,setInvoices] = useState([])
 
   const toggleModal = (value)=>{
     if (value===true) {
@@ -12,6 +13,30 @@ const NotePage = () => {
       setToggle(false)
     }
   }
+
+  const invoiceCall = async()=> {
+    try {
+      const req = await fetch('/invoice/')
+      const results = await req.json()
+      const newUserListId = results.map((item,index,arr)=>{
+        const clonedItem = Object.assign({}, item)
+        let id;
+        id=clonedItem._id = index+1
+        delete clonedItem['_id']
+        return {id,...item}
+      })
+      setInvoices(newUserListId)
+    } catch (e) {
+      console.log(e);
+      setInvoices([]);
+    }
+  }
+
+  useEffect(()=>{
+    invoiceCall()
+  },[])
+
+  console.log(invoices);
 
   return (
     <div className="main-container">
