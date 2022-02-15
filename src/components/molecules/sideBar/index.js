@@ -24,7 +24,7 @@ const SideBar = ({active}) => {
               <PeopleAltOutlinedIcon className="sidebarIcon"/>
               <p>Pengguna</p>
             </Link>
-            <Link to={`/profile/${user.datas.username}`} className={`sidebar-listItem ${active==="user" && 'active'}`}>
+            <Link to={`/profile/${user.username}`} className={`sidebar-listItem ${active==="user" && 'active'}`}>
               <PersonOutlineOutlinedIcon className="sidebarIcon"/>
               <p>Profil</p>
             </Link>

@@ -57,17 +57,6 @@ const Register = (props) => {
               <input placeholder="dindagledis1228" ref={username}/>
             </div>
           </div>
-
-          {/*<div className="inputs-container">
-            <div className="input-item">
-              <label>Tanggal Lahir</label>
-              <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-            </div>
-            <div className="input-item">
-              <label>Alamat</label>
-              <input placeholder="Masukkan fullname"/>
-            </div>
-          </div>*/}
           <div className="inputs-container">
             <div className="input-item">
               <label>Email</label>
