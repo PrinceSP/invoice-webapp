@@ -30,7 +30,7 @@ const TopBar = () => {
         <div className="rightComponent">
           <NotificationsNoneIcon className="icon"/>
           {
-            user.profilePicture ? <img className="profileIcon icon" src={`data:image/png;base64,${user.profilePicture}`}/> : <div className="profileIcon">
+            user.profilePicture ? <img alt="profile icon" className="profileIcon icon" src={`data:image/png;base64,${user.profilePicture}`}/> : <div className="profileIcon">
                   <PersonIcon fill="#fff" className="icon" onClick={()=>toggleModal(true)}/>
               </div>
           }

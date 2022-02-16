@@ -1,7 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import {TopBar,SideBar,DatasGrid} from '../../components'
 import './user.scss'
-import {userListCall} from '../../configs/apiCalls'
 
 const UserLists = (props) => {
   const [isUserList,setUserLists] = useState([])

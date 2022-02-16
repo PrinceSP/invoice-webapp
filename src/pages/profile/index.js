@@ -1,7 +1,6 @@
-import React,{useEffect,useContext} from 'react'
+import React,{useContext} from 'react'
 import {TopBar,SideBar} from '../../components'
 import './profile.scss'
-import {useParams} from 'react-router-dom'
 import {AuthContext} from '../../context/AuthContext'
 
 const Profile = (props) => {
