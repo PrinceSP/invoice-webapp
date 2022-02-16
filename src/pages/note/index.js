@@ -1,10 +1,27 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useContext,useEffect,useRef} from 'react'
 import {TopBar,SideBar,Button,Input,Gap,CheckBox} from '../../components'
 import "./note.scss"
+import {notePostCalls} from '../../configs/apiCalls'
+import {AuthContext} from '../../context/AuthContext'
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css'
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
   const [invoices,setInvoices] = useState([])
+  const {user} = useContext(AuthContext)
+  const [startDate, setStartDate] = useState(new Date());
+  const vehicleType = useRef()
+  const vehicle = useRef()
+  const client = useRef()
+  const plat = useRef()
+  const servicePrice = useRef()
+  const spareParts = useRef()
+  const sparePartPrice = useRef()
+  const diagnosis = useRef()
+  const action = useRef()
+  const total = useRef()
+  const phoneNumber = useRef()
 
   const toggleModal = (value)=>{
     if (value===true) {
@@ -14,26 +31,29 @@ const NotePage = () => {
     }
   }
 
-  const invoiceCall = async()=> {
-    try {
-      const req = await fetch('/invoice/')
-      const results = await req.json()
-      const newUserListId = results.map((item,index,arr)=>{
-        const clonedItem = Object.assign({}, item)
-        let id;
-        id=clonedItem._id = index+1
-        delete clonedItem['_id']
-        return {id,...item}
-      })
-      setInvoices(newUserListId)
-    } catch (e) {
-      console.log(e);
-      setInvoices([]);
+  const submitNote = async (e)=>{
+    e.preventDefault()
+
+    const invoiceData = {
+      userId:user._id,
+      sender:user.username,
+      vehicleType:vehicleType.current.value,
+      vehicle:vehicle.current.value,
+      client:client.current.value,
+      phoneNumber:phoneNumber.current.value,
+      plat:plat.current.value,
+      repairService:servicePrice.current.value,
+      spareParts:spareParts.current.value,
+      sparePartPrice:sparePartPrice.current.value,
+      diagnosis:diagnosis.current.value,
+      action:action.current.value,
+      total:total.current.value,
     }
+    notePostCalls(invoiceData)
   }
 
   useEffect(()=>{
-    invoiceCall()
+    notePostCalls()
   },[])
 
   return (
@@ -47,27 +67,34 @@ const NotePage = () => {
               <h3>Buat nota baru</h3>
               <ul>
                 <li>
-                  <Input label="No." holder="01" name="no" width={460} height={35}/>
-                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={460} height={35}/>
+                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={307} height={35} ref={client}/>
+                  <Input label="No.Telp" holder="081234567xxxxxx" name="nama_konsumen" width={307} height={35} ref={client}/>
+                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={307} height={35} ref={vehicleType}/>
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={307} height={35}/>
-                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={307} height={35}/>
-                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={307} height={35}/>
+                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={460} height={35} ref={vehicle}/>
+                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={460} height={35} ref={plat}/>
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={460} height={35}/>
-                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={460} height={35}/>
+                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={307} height={35} ref={diagnosis}/>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    className="datepicker"
+                    placeholderText="28/08/2022"
+                    isClearable
+                    showYearDropdown
+                    scrollableMonthYearDropdown
+                    />
+                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={307} height={35} ref={action}/>
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-                    <Input label="Suku Cadang" holder="300,000" name="jasa_layanan" width={307} height={35}/>
-                    <Input label="Harga Suku Cadang" holder="300,000" name="jasa_layanan" width={307} height={35}/>
-                  </div>
-                  <Input label="Jasa Layanan" holder="Kompressor" name="suku_cadang" width={307} height={35}/>
+                  <Input label="Suku Cadang" holder="300,000" name="suku_cadang" width={307} height={35} ref={spareParts}/>
+                  <Input label="Harga Suku Cadang" holder="300,000" name="harga_suku_cadang" width={307} height={35} ref={sparePartPrice}/>
+                  <Input label="Jasa Layanan" holder="Kompressor" name="jasa_layanan" width={307} height={35} ref={servicePrice}/>
                 </li>
                 <Gap height={20}/>
                 <li style={{display:'flex'}}>
@@ -80,8 +107,10 @@ const NotePage = () => {
                     </div>
                   </div>
                   <div>
-                    <h1 style={{color:"#6989F8"}}>Total Pembayaran</h1>
-                    <p className="totalPrice">Rp.145,230,00</p>
+                    <h1 style={{color:"#6989F8",margin:0}}>Total Pembayaran</h1>
+                    {/**<p className="totalPrice">Rp.145,230,00</p>**/}
+                    <Input holder="300,000" name="total" width={307} height={35} ref={total}/>
+                    <Gap height={20}/>
                     <Button type="submit" className="submit" name="Simpan Laporan"/>
                   </div>
                 </li>
