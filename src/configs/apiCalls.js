@@ -30,13 +30,11 @@ export const registerCall = async (userCredentials,navigate)=>{
       },
       body: JSON.stringify(userCredentials)
     }
-    const req = await fetch('/auth/register',options)
-    const results = await req.json()
-    if (req.status === 200) {
-      setTimeout(()=>{
-        navigate('/login')
-      },1000)
-    }
+    await fetch('/auth/register',options)
+
+    setTimeout(()=>{
+      navigate('/login')
+    },1000)
   } catch (e) {
     console.log(e);
     return e;

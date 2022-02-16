@@ -41,7 +41,7 @@ const NotePage = () => {
       vehicleType:vehicleType.current.value,
       vehicle:vehicle.current.value,
       client:client.current.value,
-      date:'ssfsdfsdfsf',
+      date:startDate,
       phoneNumber:phoneNumber.current.value,
       plat:plat.current.value,
       repairService:repairService.current.value,
