@@ -8,7 +8,6 @@ const Home = (props) => {
 
   const name = JSON.stringify(user.fullname)
   const username = typeof name==="string" ? name.split(" ")[0] : name
-  console.log(user);
   return (
     <div className="main-container">
       <TopBar profile={true}/>
