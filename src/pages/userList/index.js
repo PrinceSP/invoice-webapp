@@ -31,7 +31,6 @@ const UserLists = (props) => {
     userListCall()
   },[])
 
-  console.log(isUserList);
   return (
     <div className="main-container">
       <TopBar profile={true}/>
