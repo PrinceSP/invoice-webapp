@@ -53,10 +53,8 @@ export const notePostCalls = async (userCredentials)=>{
       },
       body: JSON.stringify(userCredentials)
     }
-    const req = await fetch('/api/invoice',options)
-    const results = await req.json()
+    await fetch(`/invoice`,options)
   } catch (e) {
     console.log(e);
-    return e;
   }
 }

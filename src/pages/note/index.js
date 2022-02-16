@@ -11,11 +11,12 @@ const NotePage = () => {
   const [invoices,setInvoices] = useState([])
   const {user} = useContext(AuthContext)
   const [startDate, setStartDate] = useState(new Date());
+
   const vehicleType = useRef()
   const vehicle = useRef()
   const client = useRef()
   const plat = useRef()
-  const servicePrice = useRef()
+  const repairService = useRef()
   const spareParts = useRef()
   const sparePartPrice = useRef()
   const diagnosis = useRef()
@@ -31,7 +32,7 @@ const NotePage = () => {
     }
   }
 
-  const submitNote = async (e)=>{
+  const submitNote = async(e)=>{
     e.preventDefault()
 
     const invoiceData = {
@@ -40,22 +41,36 @@ const NotePage = () => {
       vehicleType:vehicleType.current.value,
       vehicle:vehicle.current.value,
       client:client.current.value,
+      date:'ssfsdfsdfsf',
       phoneNumber:phoneNumber.current.value,
       plat:plat.current.value,
-      repairService:servicePrice.current.value,
+      repairService:repairService.current.value,
       spareParts:spareParts.current.value,
-      sparePartPrice:sparePartPrice.current.value,
+      sparePartsPrice:sparePartPrice.current.value,
       diagnosis:diagnosis.current.value,
       action:action.current.value,
       total:total.current.value,
     }
+    console.log(invoiceData);
     notePostCalls(invoiceData)
   }
 
+  const invoicePostCalls = async ()=>{
+    try {
+      const req = await fetch('/invoice')
+      const results = await req.json()
+      setInvoices(results)
+    } catch (e) {
+      setInvoices([])
+      return e;
+    }
+  }
+
   useEffect(()=>{
-    notePostCalls()
+    invoicePostCalls()
   },[])
 
+  console.log(invoices);
   return (
     <div className="main-container">
       <TopBar profile={true}/>
@@ -63,22 +78,22 @@ const NotePage = () => {
         <SideBar active="notes"/>
         <div className="others">
           <div className="modalBox-container" style={{display:toggle===true?'flex':'none'}}>
-            <form>
+            <form onSubmit={submitNote}>
               <h3>Buat nota baru</h3>
               <ul>
                 <li>
-                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={307} height={35} ref={client}/>
-                  <Input label="No.Telp" holder="081234567xxxxxx" name="nama_konsumen" width={307} height={35} ref={client}/>
-                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={307} height={35} ref={vehicleType}/>
+                  <Input label="Konsumen" holder="prince siachin" name="nama_konsumen" width={307} height={35} refs={client}/>
+                  <Input label="No.Telp" holder="081234567xxxxxx" name="no_telp" width={307} height={35} refs={phoneNumber}/>
+                  <Input label="Tipe Kendaraan" holder="Honda" name="tipe_kendaraan" width={307} height={35} refs={vehicleType}/>
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={460} height={35} ref={vehicle}/>
-                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={460} height={35} ref={plat}/>
+                  <Input label="Jenis Kendaraan" holder="Mobil" name="jenis_kendaraan" width={460} height={35} refs={vehicle}/>
+                  <Input label="No. Polisi" holder="DN 1228 PD" name="no_polisi" width={460} height={35} refs={plat}/>
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={307} height={35} ref={diagnosis}/>
+                  <Input label="Diagnosa" holder="AC Bermasalah" name="diagnosa" width={307} height={35} refs={diagnosis}/>
                   <DatePicker
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
@@ -88,13 +103,13 @@ const NotePage = () => {
                     showYearDropdown
                     scrollableMonthYearDropdown
                     />
-                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={307} height={35} ref={action}/>
+                  <Input label="Penangan" holder="Pengisian ulang freon" name="penanganan" width={307} height={35} refs={action}/>
                 </li>
                 <Gap height={20}/>
                 <li>
-                  <Input label="Suku Cadang" holder="300,000" name="suku_cadang" width={307} height={35} ref={spareParts}/>
-                  <Input label="Harga Suku Cadang" holder="300,000" name="harga_suku_cadang" width={307} height={35} ref={sparePartPrice}/>
-                  <Input label="Jasa Layanan" holder="Kompressor" name="jasa_layanan" width={307} height={35} ref={servicePrice}/>
+                  <Input label="Suku Cadang" holder="Kompressor" name="suku_cadang" width={307} height={35} refs={spareParts}/>
+                  <Input label="Harga Suku Cadang" holder="300,000" name="harga_suku_cadang" width={307} height={35} refs={sparePartPrice}/>
+                  <Input label="Jasa Layanan" holder="300,000" name="jasa_layanan" width={307} height={35} refs={repairService}/>
                 </li>
                 <Gap height={20}/>
                 <li style={{display:'flex'}}>
@@ -109,7 +124,7 @@ const NotePage = () => {
                   <div>
                     <h1 style={{color:"#6989F8",margin:0}}>Total Pembayaran</h1>
                     {/**<p className="totalPrice">Rp.145,230,00</p>**/}
-                    <Input holder="300,000" name="total" width={307} height={35} ref={total}/>
+                    <Input holder="300,000" name="total" width={307} height={35} refs={total}/>
                     <Gap height={20}/>
                     <Button type="submit" className="submit" name="Simpan Laporan"/>
                   </div>
