@@ -25,8 +25,8 @@ const NewNotes = (props) => {
       <table>
         <TableHeader/>
       </table>
-      {isUserList.map((item,index)=>(
-        <Table name={item.sender} date={item.date} id={item._id} phone={item.phoneNumber}/>
+      {isUserList.slice(0,4).map(item=>(
+        <Table name={item.name}id={item._id}date={item.date}phone={item.phone}/>
       ))}
     </div>
   )
