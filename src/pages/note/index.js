@@ -56,7 +56,7 @@ const NotePage = () => {
 
   const invoicePostCalls = async ()=>{
     try {
-      const req = await fetch('/invoice')
+      const req = await fetch('https://charlie-invoice.herokuapp.com/api/invoice')
       const results = await req.json()
       const newNoteListId = results.map((item,index,arr)=>{
         const clonedItem = Object.assign({}, item)

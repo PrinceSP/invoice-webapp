@@ -9,7 +9,7 @@ export const loginCall = async (userCredentials,dispatch)=>{
       },
       body: JSON.stringify(userCredentials)
     }
-    const res = await fetch('/auth/login', options).then(res=>res.json())
+    const res = await fetch('https://charlie-invoice.herokuapp.com/api/auth/login', options).then(res=>res.json())
     if (res.message === 'success login') {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.datas });
     } else {
@@ -30,7 +30,7 @@ export const registerCall = async (userCredentials,navigate)=>{
       },
       body: JSON.stringify(userCredentials)
     }
-    await fetch('/auth/register',options)
+    await fetch('https://charlie-invoice.herokuapp.com/api/auth/register',options)
 
     setTimeout(()=>{
       navigate('/login')
@@ -51,7 +51,7 @@ export const notePostCalls = async (userCredentials)=>{
       },
       body: JSON.stringify(userCredentials)
     }
-    await fetch(`/invoice`,options)
+    await fetch(`https://charlie-invoice.herokuapp.com/api/invoice`,options)
   } catch (e) {
     console.log(e);
   }

@@ -11,7 +11,7 @@ const UserLists = (props) => {
 
   const userListCall = async()=> {
     try {
-      const req = await fetch('/user/userList/all')
+      const req = await fetch('https://charlie-invoice.herokuapp.com/api/user/userList/all')
       const results = await req.json()
       const newUserListId = results.map((item,index,arr)=>{
         const clonedItem = Object.assign({}, item)
