@@ -51,7 +51,6 @@ const NotePage = () => {
       action:action.current.value,
       total:total.current.value,
     }
-    console.log(invoiceData);
     notePostCalls(invoiceData)
   }
 
@@ -59,7 +58,13 @@ const NotePage = () => {
     try {
       const req = await fetch('/invoice')
       const results = await req.json()
-      setInvoices(results)
+      const newNoteListId = results.map((item,index,arr)=>{
+        const clonedItem = Object.assign({}, item)
+        let id;
+        id=clonedItem._id = index+1
+        return {id,...item}
+      })
+      setInvoices(newNoteListId)
     } catch (e) {
       setInvoices([])
       return e;
@@ -70,7 +75,6 @@ const NotePage = () => {
     invoicePostCalls()
   },[])
 
-  console.log(invoices);
   return (
     <div className="main-container">
       <TopBar profile={true}/>
