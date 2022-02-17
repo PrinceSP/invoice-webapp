@@ -6,73 +6,61 @@ const Chart = (props) => {
   const data = [
     {
       name: 'Jan',
-      awal_bulan: 10,
       akhir_bulan: 17,
       // amt: 2400,
     },
     {
       name: 'Feb',
-      awal_bulan: 11,
       akhir_bulan: 5,
       // amt: 2210,
     },
     {
       name: 'Mar',
-      awal_bulan: 10,
       akhir_bulan: 5,
       // amt: 2290,
     },
     {
       name: 'Apr',
-      awal_bulan: 27,
       akhir_bulan: 10,
       // amt: 2000,
     },
     {
       name: 'Mei',
-      awal_bulan: 18,
       akhir_bulan: 33,
       // amt: 2181,
     },
     {
       name: 'Jun',
-      awal_bulan: 23,
       akhir_bulan: 23,
       // amt: 2500,
     },
     {
       name: 'Jul',
-      awal_bulan: 34,
       akhir_bulan: 70,
       // amt: 2100,
     },
     {
       name: 'Agu',
-      awal_bulan: 34,
       akhir_bulan: 43,
       // amt: 2100,
     },
     {
       name: 'Sep',
-      awal_bulan: 13,
       akhir_bulan: 17,
       // amt: 2100,
     },
     {
       name: 'Okt',
-      awal_bulan: 10,
       akhir_bulan: 14,
       // amt: 2100,
     },
     {
       name: 'Nov',
-      awal_bulan: 5,
       akhir_bulan: 9,
       // amt: 2100,
     },
     {
       name: 'Des',
-      awal_bulan: 6,
       akhir_bulan: 3,
       // amt: 2100,
     },
@@ -99,7 +87,6 @@ const Chart = (props) => {
           <Tooltip />
           <Legend />
           <Bar dataKey="akhir_bulan" fill="#FF6F1E" />
-          <Bar dataKey="awal_bulan" fill="#282052" />
         </BarChart>
       </ResponsiveContainer>
     </div>
