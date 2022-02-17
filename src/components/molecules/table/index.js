@@ -1,8 +1,12 @@
 import React from 'react'
 import PersonIcon from '@mui/icons-material/Person';
 import "./table.scss"
+import {localizeDateStr} from '../../../configs'
 
 const Table = ({children=null,name,phone,profilePicture,date,id}) => {
+
+  let actualDate = localizeDateStr(date)
+
   return (
     <table>
       {children}
@@ -13,7 +17,7 @@ const Table = ({children=null,name,phone,profilePicture,date,id}) => {
           </div>
           <p>{name}</p>
         </td>
-        <td className='blurText'>{date}</td>
+        <td className='blurText'>{actualDate}</td>
         <td className='blurText'>{id}</td>
         <td>{phone}</td>
       </tr>
