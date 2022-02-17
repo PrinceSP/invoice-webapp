@@ -52,6 +52,17 @@ const NotePage = () => {
       total:total.current.value,
     }
     notePostCalls(invoiceData)
+      vehicleType.current.value=""
+      vehicle.current.value=""
+      client.current.value=""
+      phoneNumber.current.value=""
+      plat.current.value=""
+      repairService.current.value=""
+      spareParts.current.value=""
+      sparePartPrice.current.value=""
+      diagnosis.current.value=""
+      action.current.value=""
+      total.current.value=""
   }
 
   const invoicePostCalls = async ()=>{
