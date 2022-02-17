@@ -5,13 +5,13 @@ import {notePostCalls} from '../../configs/apiCalls'
 import {AuthContext} from '../../context/AuthContext'
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
+import {localizeDateStr} from '../../configs'
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
   const [invoices,setInvoices] = useState([])
   const {user} = useContext(AuthContext)
   const [startDate, setStartDate] = useState(new Date());
-
   const vehicleType = useRef()
   const vehicle = useRef()
   const client = useRef()
@@ -165,7 +165,7 @@ const NotePage = () => {
               {invoices.map(item=>(
                 <tr key={item._id}>
                   <td id="id">{item.id}</td>
-                  <td>{item.date}</td>
+                  <td>{localizeDateStr(item.date)}</td>
                   <td>{item.client}</td>
                   <td>{item.diagnosis}</td>
                   <td><Button type="button" name="Lihat Detail"/></td>
