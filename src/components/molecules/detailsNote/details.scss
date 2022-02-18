@@ -6,12 +6,61 @@
   height:100%;
   z-index: 2000;
   background-color: rgba(0,0,0,0.2);
+  padding:0;
+  margin:0;
 
   .detailsNote-container{
-    width:700px;
+    width:800px;
     background-color:#fff;
     box-shadow:0 0 20px 1px #606060;
     border-radius:10px;
     margin:30px auto 0;
+    position: relative;
+    padding: 10px;
+    .exit{
+      width:50px;
+      height:50px;
+      position:absolute;
+      top:-20px;
+      left:-30px;
+      cursor: pointer;
+      background-color: none;
+    }
+
+    .header{
+      height:80px;
+      padding:0 0 5px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed #aaa;
+
+      .headerItem{
+        margin:0;
+        padding:0;
+        div{
+          display: flex;
+          p{
+            margin:0;
+            font-size: 1em;
+          }
+          p:nth-child(odd){
+            margin-right: 20px;
+            color:#4799dd;
+          }
+        }
+      }
+    }
+
+    .firstSection,.secondSection,.thirdSection{
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #aaa;
+      ul{
+        li{
+          list-style: none;
+        }
+      }
+    }
   }
 }

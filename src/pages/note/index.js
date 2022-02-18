@@ -11,6 +11,7 @@ const NotePage = () => {
   const [toggle,setToggle] = useState(false)
   const [query,setQuery] = useState('')
   const [note,setNote] = useState(false)
+  const [freon,setFreon] = useState('')
   const [invoices,setInvoices] = useState([])
   const {user} = useContext(AuthContext)
   const [startDate, setStartDate] = useState(new Date());
@@ -25,22 +26,6 @@ const NotePage = () => {
   const action = useRef()
   const total = useRef()
   const phoneNumber = useRef()
-
-  const toggleModal = (value)=>{
-    if (value===true) {
-      setToggle(true)
-    }else{
-      setToggle(false)
-    }
-  }
-
-  const toggleNote = (value)=>{
-    if (value===true) {
-      setNote(true)
-    }else{
-      setNote(false)
-    }
-  }
 
   const submitNote = async(e)=>{
     e.preventDefault()
@@ -57,6 +42,7 @@ const NotePage = () => {
       repairService:repairService.current.value,
       spareParts:spareParts.current.value,
       sparePartsPrice:sparePartPrice.current.value,
+      freonUse:freon,
       diagnosis:diagnosis.current.value,
       action:action.current.value,
       total:total.current.value,
@@ -97,7 +83,7 @@ const NotePage = () => {
   useEffect(()=>{
     invoicePostCalls()
   },[])
-
+  console.log(freon);
   return (
     <div className="main-container">
       <TopBar profile={true}/>
@@ -143,14 +129,13 @@ const NotePage = () => {
                   <div style={{flexDirection:'column'}}>
                     <h3>Jenis Freon:</h3>
                     <div style={{width:190}}>
-                      <CheckBox label="Klea" name="checkbox" height={20} width={20}/>
-                      <CheckBox label="Bailian" name="checkbox" height={20} width={20}/>
-                      <CheckBox label="Dupoet" name="checkbox" height={20} width={20}/>
+                      <CheckBox label="Klea" name="checkbox" height={20} width={20} value="klea" onChange={(e)=>setFreon(e.target.value)}/>
+                      <CheckBox label="Bailian" name="checkbox" height={20} width={20} value="bailian" onChange={(e)=>setFreon(e.target.value)}/>
+                      <CheckBox label="Dupoet" name="checkbox" height={20} width={20} value="dupoet" onChange={(e)=>setFreon(e.target.value)}/>
                     </div>
                   </div>
                   <div>
                     <h1 style={{color:"#6989F8",margin:0}}>Total Pembayaran</h1>
-                    {/**<p className="totalPrice">Rp.145,230,00</p>**/}
                     <Input holder="300,000" name="total" width={307} height={35} refs={total}/>
                     <Gap height={20}/>
                     <Button type="submit" className="submit" name="Simpan Laporan"/>
@@ -158,14 +143,14 @@ const NotePage = () => {
                 </li>
               </ul>
             </form>
-            <Button className="exitModal" name="X" onClick={()=>toggleModal(false)}/>
+            <Button className="exitModal" name="X" onClick={()=>setToggle(false)}/>
           </div>
           <div className="header">
             <div>
               <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
               <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
             </div>
-            <Button name="+Nota Baru" onClick={()=>toggleModal(true)}/>
+            <Button name="+Nota Baru" onClick={()=>setToggle(true)}/>
           </div>
           <form>
             <input
@@ -196,13 +181,11 @@ const NotePage = () => {
                     <td>{item.diagnosis}</td>
                     <td><Button type="button" name="Lihat Detail" onClick={()=>setNote(true)}/></td>
                   </tr>
-                  {note&&<DetailsNote item={item}/>}
+                  {note&&<DetailsNote item={item} onClick={()=>setNote(false)}/>}
                 </>
               ))}
             </tbody>
           </table>
-
-
         </div>
       </div>
     </div>
