@@ -1,9 +1,11 @@
 import React from 'react'
 import './details.scss'
 import CancelIcon from '@mui/icons-material/Cancel';
+import {localizeDateStr} from '../../../configs'
 
 const DetailsNote = ({item,onClick}) => {
-const {fullname,date,total,vehicle,freonUse,vehicleType,diagnosis,action,spareParts,sparePartsPrice,plat,repairService,} = item
+  const {fullname,date,total,vehicle,freonUse,vehicleType,diagnosis,action,spareParts,sparePartsPrice,plat,repairService,} = item
+  const actualDate = localizeDateStr(date)
   return (
     <div className="backgroundBlur">
       <div className="detailsNote-container">
@@ -17,7 +19,7 @@ const {fullname,date,total,vehicle,freonUse,vehicleType,diagnosis,action,sparePa
             </div>
             <div>
               <p>Tanggal Nota:</p>
-              <p>{date}</p>
+              <p>{actualDate}</p>
             </div>
           </div>
         </div>
@@ -69,7 +71,7 @@ const {fullname,date,total,vehicle,freonUse,vehicleType,diagnosis,action,sparePa
             <p>{freonUse}</p>
           </div>
         </div>
-        <div style={{display:'flex',justifyContent:'space-between'}}>
+        <div className="fourthSection">
           <div>
             <p>Harga Jasa Layanan</p>
             <p>{repairService}</p>

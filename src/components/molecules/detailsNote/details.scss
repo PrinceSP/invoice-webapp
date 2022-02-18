@@ -52,7 +52,7 @@
       }
     }
 
-    .firstSection,.secondSection,.thirdSection{
+    .firstSection,.secondSection,.thirdSection,.fourthSection{
       display: flex;
       justify-content: space-between;
       border-bottom: 1px dashed #aaa;
@@ -60,6 +60,13 @@
         li{
           list-style: none;
         }
+      }
+      p{
+        color:#000;
+      }
+
+      p:nth-child(odd){
+        color:#4799dd;
       }
     }
   }
