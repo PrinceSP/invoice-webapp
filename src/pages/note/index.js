@@ -5,7 +5,7 @@ import {notePostCalls} from '../../configs/apiCalls'
 import {AuthContext} from '../../context/AuthContext'
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
-import {localizeDateStr} from '../../configs'
+import {localizeDateStr,search} from '../../configs'
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
@@ -74,6 +74,8 @@ const NotePage = () => {
       action.current.value=""
       total.current.value=""
   }
+
+  let datas = search(invoices,query)
 
   const invoicePostCalls = async ()=>{
     try {
@@ -170,7 +172,7 @@ const NotePage = () => {
               value={query}
               type="text"
               id="header-search"
-              placeholder={`Search blog posts`}
+              placeholder="Cari berdasarkan plat, tanggal nota, konsumen, no.telp, dll...."
               name="search"
               onChange={(event)=>setQuery(event.target.value)}/>
           </form>
@@ -185,9 +187,7 @@ const NotePage = () => {
               </tr>
             </thead>
             <tbody>
-              {invoices.filter(invoice=>(
-                invoice.plat.toLowerCase().includes(query)
-              )).map(item=>(
+              {datas.map(item=>(
                 <>
                   <tr key={item._id}>
                     <td id="id">{item.id}</td>

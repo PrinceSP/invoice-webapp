@@ -1,3 +1,3 @@
 import localizeDateStr from './localiseDate'
-
-export {localizeDateStr}
+import search from './search'
+export {localizeDateStr,search}

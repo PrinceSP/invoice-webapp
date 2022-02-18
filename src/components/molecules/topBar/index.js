@@ -18,9 +18,9 @@ const TopBar = () => {
         <div className="rightComponent">
           <NotificationsNoneIcon className="icon"/>
           {
-            user.profilePictur  === '' ? <div className="profileIcon">
-                  <PersonIcon fill="#fff" className="icon"/>
-              </div> : <img alt="icon" className="profileIcon icon" src={`data:image/png;base64,${user.profilePicture}`}/>
+            user.profilePicture.includes('$') ? <div className="profileIcon">
+              <PersonIcon fill="#fff" className="icon"/>
+            </div> : <img alt="icon" className="profileIcon icon" src={`data:image/png;base64,${user.profilePicture}`}/>
           }
         </div>
       </div>
