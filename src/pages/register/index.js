@@ -21,6 +21,7 @@ const Register = (props) => {
   const submitRegister = async (e)=>{
     e.preventDefault()
     if (passwordConfirm.current.value !== password.current.value) {
+      console.log(password,passwordConfirm);
       password.current.setCustomValidity("Kata sandi tidak sama!")
     } else {
       const user = {
@@ -32,6 +33,11 @@ const Register = (props) => {
       }
       registerCall(user,navigate)
     }
+    fullname.current.value=""
+    username.current.value=""
+    email.current.value=""
+    profilePicture.current.value=""
+    password.current.value=""
   }
   return (
     <div id="register-container">
@@ -77,7 +83,7 @@ const Register = (props) => {
               <input placeholder="Masukkan fullname" ref={passwordConfirm}/>
             </div>
           </div>
-          <Button className="register" name="Daftar"/>
+          <Button type="submit" className="register" name="Daftar"/>
         </form>
       </div>
       <Footer/>

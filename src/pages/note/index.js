@@ -1,5 +1,5 @@
 import React,{useState,useContext,useEffect,useRef} from 'react'
-import {TopBar,SideBar,Button,Input,Gap,CheckBox} from '../../components'
+import {TopBar,SideBar,Button,Input,Gap,CheckBox,DetailsNote} from '../../components'
 import "./note.scss"
 import {notePostCalls} from '../../configs/apiCalls'
 import {AuthContext} from '../../context/AuthContext'
@@ -9,6 +9,7 @@ import {localizeDateStr} from '../../configs'
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
+  const [note,setNote] = useState(false)
   const [invoices,setInvoices] = useState([])
   const {user} = useContext(AuthContext)
   const [startDate, setStartDate] = useState(new Date());
@@ -29,6 +30,14 @@ const NotePage = () => {
       setToggle(true)
     }else{
       setToggle(false)
+    }
+  }
+
+  const toggleNote = (value)=>{
+    if (value===true) {
+      setNote(true)
+    }else{
+      setNote(false)
     }
   }
 
@@ -174,16 +183,21 @@ const NotePage = () => {
             </thead>
             <tbody>
               {invoices.map(item=>(
-                <tr key={item._id}>
-                  <td id="id">{item.id}</td>
-                  <td>{localizeDateStr(item.date)}</td>
-                  <td>{item.client}</td>
-                  <td>{item.diagnosis}</td>
-                  <td><Button type="button" name="Lihat Detail"/></td>
-                </tr>
+                <>
+                  <tr key={item._id}>
+                    <td id="id">{item.id}</td>
+                    <td>{localizeDateStr(item.date)}</td>
+                    <td>{item.client}</td>
+                    <td>{item.diagnosis}</td>
+                    <td><Button type="button" name="Lihat Detail" onClick={()=>setNote(true)}/></td>
+                  </tr>
+                  {note&&<DetailsNote item={item}/>}
+                </>
               ))}
             </tbody>
           </table>
+
+
         </div>
       </div>
     </div>
