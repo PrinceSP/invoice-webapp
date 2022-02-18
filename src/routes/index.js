@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import {Home,UserLists,NotePage,Storage,Login,Register,Profile} from '../pages'
+import {Home,UserLists,NotePage,Login,Register,Profile} from '../pages'
 import { AuthContext } from "../context/AuthContext";
 
 const Routing = ()=>{
@@ -12,7 +12,6 @@ const Routing = ()=>{
       <Route path="/register" element={user ? <Navigate to="/" />: <Register/>}/>
       <Route path="/UserLists" element={<UserLists />} />
       <Route path="/NotePage" element={<NotePage />} />
-      <Route path="/Storage" element={<Storage />} />
       <Route path="/Profile/:username" element={<Profile />} />
     </Routes>
   )
