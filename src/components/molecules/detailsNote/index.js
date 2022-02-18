@@ -1,5 +1,4 @@
 import React from 'react'
-import {StyledDot} from '../../atoms'
 import './details.scss'
 
 const DetailsNote = ({item}) => {
@@ -22,8 +21,14 @@ const {fullname,date,key,total,vehicle,freonUse,vehicleType,diagnosis,action,spa
         </div>
         <div>
           <div>
-            <p>No.HP</p>
-            <p>{item.phoneNumber}</p>
+            <div>
+              <p>Konsumen</p>
+              <p>{fullname}</p>
+            </div>
+            <div>
+              <p>No.HP</p>
+              <p>{item.phoneNumber}</p>
+            </div>
           </div>
           <div style={{display:'flex',justifyContent:'space-between'}}>
             <div>
@@ -66,25 +71,5 @@ const {fullname,date,key,total,vehicle,freonUse,vehicleType,diagnosis,action,spa
     </div>
   )
 }
-
-const style={
-  listCont:{
-    height:158,width:350,marginBottom:12,marginTop:12,
-    marginLeft:25,backgroundColor:'#fff',borderTopLeftRadius:20,
-    elevation: 15,shadowColor: "#82B6DB",shadowOpacity: 1,shadowRadius:20
-  },
-  firstSection:{flexDirection:'row',alignItems:'center',justifyContent:'space-between'},
-  secondSection:{paddingRight:15,marginTop:16},
-  thirdSection:{paddingRight:15},
-  diagnosisText:{color:'#0B2273',fontSize:14.4,fontFamily:'Poppins-Medium'},
-  name:{color:'#939394',fontSize:14.4,fontFamily:'Poppins-Medium'},
-  date:{color:'#142D84',fontSize:14.4,fontFamily:'Poppins-Medium'},
-  total:{color:'#6989F8',fontSize:14.4,fontFamily:'Poppins-Bold'},
-  fontRegular:{fontFamily:'Poppins-Regular',color:'#161E3C'},
-  textMedium:{fontFamily:'Poppins-Medium',color:'#142D84'},
-  itemsMedium:{fontSize:14,color:"#939394",fontFamily:"Poppins-Medium"}
-}
-
-const {listCont,diagnosisText,total,firstSection,name,secondSection,thirdSection,date,fontRegular,textMedium,itemsMedium} = style
 
 export default DetailsNote

@@ -9,6 +9,7 @@ import {localizeDateStr} from '../../configs'
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
+  const [query,setQuery] = useState('')
   const [note,setNote] = useState(false)
   const [invoices,setInvoices] = useState([])
   const {user} = useContext(AuthContext)
@@ -166,10 +167,12 @@ const NotePage = () => {
           </div>
           <form>
             <input
+              value={query}
               type="text"
               id="header-search"
               placeholder={`Search blog posts`}
-              name="search"/>
+              name="search"
+              onChange={(event)=>setQuery(event.target.value)}/>
           </form>
           <table>
             <thead>
@@ -182,7 +185,9 @@ const NotePage = () => {
               </tr>
             </thead>
             <tbody>
-              {invoices.map(item=>(
+              {invoices.filter(invoice=>(
+                invoice.plat.toLowerCase().includes(query)
+              )).map(item=>(
                 <>
                   <tr key={item._id}>
                     <td id="id">{item.id}</td>
