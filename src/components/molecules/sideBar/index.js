@@ -3,6 +3,7 @@ import './sideBar.scss'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
+import ViewListIcon from '@mui/icons-material/ViewList';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {Link} from 'react-router-dom'
@@ -30,9 +31,13 @@ const SideBar = ({active}) => {
               <PersonOutlineOutlinedIcon className="sidebarIcon"/>
               <p>Profil</p>
             </Link>
+            <Link to="/myNotes" className={`sidebar-listItem ${active==="myNote" && 'active'}`}>
+              <ViewListIcon className="sidebarIcon"/>
+              <p>Nota Saya</p>
+            </Link>
             <Link to="/NotePage" className={`sidebar-listItem ${active==="notes" && 'active'}`}>
               <AssessmentOutlinedIcon className="sidebarIcon"/>
-              <p>Cek Nota</p>
+              <p>Semua Nota</p>
             </Link>
             <Link to="/login" onClick={()=>{
                 window.localStorage.removeItem("user")

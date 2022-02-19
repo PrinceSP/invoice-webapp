@@ -1,19 +1,19 @@
 import React,{useState,useContext,useEffect,useRef} from 'react'
 import {TopBar,SideBar,Button,Input,Gap,CheckBox,DetailsNote} from '../../components'
-import "./note.scss"
+import "./myNote.scss"
 import {notePostCalls} from '../../configs/apiCalls'
 import {AuthContext} from '../../context/AuthContext'
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import {localizeDateStr,search} from '../../configs'
 
-const NotePage = () => {
+const MyNotes = () => {
   const [toggle,setToggle] = useState(false)
   const [query,setQuery] = useState('')
   const [note,setNote] = useState(false)
   const [freon,setFreon] = useState('')
   const [invoices,setInvoices] = useState([])
-  const {user} = useContext(AuthContext)
+  const {user:currentUser} = useContext(AuthContext)
   const [startDate, setStartDate] = useState(new Date());
   const vehicleType = useRef()
   const vehicle = useRef()
@@ -31,8 +31,8 @@ const NotePage = () => {
     e.preventDefault()
 
     const invoiceData = {
-      userId:user._id,
-      sender:user.username,
+      userId:currentUser._id,
+      sender:currentUser.username,
       vehicleType:vehicleType.current.value,
       vehicle:vehicle.current.value,
       client:client.current.value,
@@ -59,36 +59,35 @@ const NotePage = () => {
       diagnosis.current.value=""
       action.current.value=""
       total.current.value=""
-      setFreon('')
   }
 
   let datas = search(invoices,query)
 
-  const invoicePostCalls = async ()=>{
-    try {
-      const req = await fetch('https://charlie-invoice.herokuapp.com/api/invoice')
-      const results = await req.json()
-      const newNoteListId = results.map((item,index,arr)=>{
-        const clonedItem = Object.assign({}, item)
-        let id;
-        id=clonedItem._id = index+1
-        return {id,...item}
-      })
-      setInvoices(newNoteListId)
-    } catch (e) {
-      setInvoices([])
-      return e;
-    }
-  }
 
   useEffect(()=>{
+    const invoicePostCalls = async ()=>{
+      try {
+        const req = await fetch(`https://charlie-invoice.herokuapp.com/api/invoice/invoicesList/${currentUser._id}`)
+        const results = await req.json()
+        const newNoteListId = results.map((item,index,arr)=>{
+          const clonedItem = Object.assign({}, item)
+          const iid=clonedItem._id = index+1
+          return {iid,...item}
+        })
+        setInvoices(newNoteListId)
+      } catch (e) {
+        setInvoices([])
+        return e;
+      }
+    }
     invoicePostCalls()
-  },[])
+  },[currentUser])
+  console.log(currentUser._id);
   return (
     <div className="main-container">
       <TopBar profile={true}/>
       <div className="container">
-        <SideBar active="notes"/>
+        <SideBar active="myNote"/>
         <div className="others">
           <div className="modalBox-container" style={{display:toggle===true?'flex':'none'}}>
             <form onSubmit={submitNote}>
@@ -173,16 +172,14 @@ const NotePage = () => {
             </thead>
             <tbody>
               {datas.map(item=>(
-                <>
-                  <tr key={item._id}>
-                    <td id="id">{item.id}</td>
-                    <td>{localizeDateStr(item.date)}</td>
-                    <td>{item.client}</td>
-                    <td>{item.diagnosis}</td>
-                    <td><Button type="button" name="Lihat Detail" onClick={()=>setNote(true)}/></td>
-                  </tr>
-                  {note&&<DetailsNote item={item} onClick={()=>setNote(false)}/>}
-                </>
+                <tr key={item._id}>
+                  <td id="id">{item.iid}</td>
+                  <td>{localizeDateStr(item.date)}</td>
+                  <td>{item.client}</td>
+                  <td>{item.diagnosis}</td>
+                  <td><Button type="button" name="Lihat Detail" onClick={()=>setNote(true)}/></td>
+                  {note&&<td><DetailsNote item={item} onClick={()=>setNote(false)}/></td>}
+                </tr>
               ))}
             </tbody>
           </table>
@@ -192,4 +189,4 @@ const NotePage = () => {
   )
 }
 
-export default NotePage
+export default MyNotes
