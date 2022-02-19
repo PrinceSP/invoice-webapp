@@ -63,7 +63,6 @@ const MyNotes = () => {
 
   let datas = search(invoices,query)
 
-
   useEffect(()=>{
     const invoicePostCalls = async ()=>{
       try {
@@ -82,7 +81,6 @@ const MyNotes = () => {
     }
     invoicePostCalls()
   },[currentUser])
-  console.log(currentUser._id);
   return (
     <div className="main-container">
       <TopBar profile={true}/>

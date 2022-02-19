@@ -4,8 +4,9 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import {localizeDateStr} from '../../../configs'
 
 const DetailsNote = ({item,onClick}) => {
-  const {fullname,date,total,vehicle,freonUse,vehicleType,diagnosis,action,spareParts,sparePartsPrice,plat,repairService,} = item
+  const {client,date,total,vehicle,freonUse,vehicleType,diagnosis,action,spareParts,sparePartsPrice,plat,repairService,} = item
   const actualDate = localizeDateStr(date)
+  console.log(item);
   return (
     <div className="backgroundBlur">
       <div className="detailsNote-container">
@@ -27,7 +28,7 @@ const DetailsNote = ({item,onClick}) => {
           <div>
             <div>
               <p>Konsumen</p>
-              <p>{fullname}</p>
+              <p>{client}</p>
             </div>
             <div>
               <p>No.HP</p>
