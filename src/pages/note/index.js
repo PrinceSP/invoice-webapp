@@ -6,6 +6,7 @@ import {AuthContext} from '../../context/AuthContext'
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import {localizeDateStr,search} from '../../configs'
+import ReactHTMLTableToExcel from 'react-html-table-to-excel'
 
 const NotePage = () => {
   const [toggle,setToggle] = useState(false)
@@ -152,16 +153,24 @@ const NotePage = () => {
             </div>
             <Button name="+Nota Baru" onClick={()=>setToggle(true)}/>
           </div>
-          <form>
-            <input
-              value={query}
-              type="text"
-              id="header-search"
-              placeholder="Cari berdasarkan plat, tanggal nota, konsumen, no.telp, dll...."
-              name="search"
-              onChange={(event)=>setQuery(event.target.value)}/>
-          </form>
-          <table>
+          <div className="handleFilter">
+            <form>
+              <input
+                value={query}
+                type="text"
+                id="header-search"
+                placeholder="Cari berdasarkan plat, tanggal nota, konsumen, no.telp, dll...."
+                name="search"
+                onChange={(event)=>setQuery(event.target.value)}/>
+            </form>
+            <ReactHTMLTableToExcel className="export"
+              table="invoices"
+              filename="WorkOrderInfos-Excel"
+              sheet="Sheet"
+              buttonText="Export to Excel"
+              />
+          </div>
+          <table id="invoice-table">
             <thead>
               <tr>
                 <th>No.</th>

@@ -6,6 +6,7 @@ import {AuthContext} from '../../context/AuthContext'
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import {localizeDateStr,search} from '../../configs'
+import ReactHTMLTableToExcel from 'react-html-table-to-excel'
 
 const MyNotes = () => {
   const [toggle,setToggle] = useState(false)
@@ -59,6 +60,7 @@ const MyNotes = () => {
       diagnosis.current.value=""
       action.current.value=""
       total.current.value=""
+      setFreon('')
   }
 
   let datas = search(invoices,query)
@@ -144,21 +146,29 @@ const MyNotes = () => {
           </div>
           <div className="header">
             <div>
-              <p style={{fontSize:'1.5em',fontWeight:400}}>Nota-nota</p>
-              <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi</p>
+              <p style={{fontSize:'1.5em',fontWeight:400}}>Nota Saya</p>
+              <p style={{fontSize:'1em',fontWeight:300}}>Daftar semua nota dan transaksi dari user ini.</p>
             </div>
             <Button name="+Nota Baru" onClick={()=>setToggle(true)}/>
           </div>
-          <form>
-            <input
-              value={query}
-              type="text"
-              id="header-search"
-              placeholder="Cari berdasarkan plat, tanggal nota, konsumen, no.telp, dll...."
-              name="search"
-              onChange={(event)=>setQuery(event.target.value)}/>
-          </form>
-          <table>
+          <div className="handleFilter">
+            <form>
+              <input
+                value={query}
+                type="text"
+                id="header-search"
+                placeholder="Cari berdasarkan plat, tanggal nota, konsumen, no.telp, dll...."
+                name="search"
+                onChange={(event)=>setQuery(event.target.value)}/>
+            </form>
+            <ReactHTMLTableToExcel className="export"
+              table="invoice-table"
+              filename="WorkOrderInfos-Excel"
+              sheet="Sheet"
+              buttonText="Export to Excel"
+              />
+          </div>
+          <table id="invoice-table">
             <thead>
               <tr>
                 <th>No.</th>

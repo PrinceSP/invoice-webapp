@@ -108,6 +108,22 @@
       box-shadow: 0px 0px 25px rgba(36, 255, 0, 1);
     }
   }
+  .handleFilter{
+    display: flex;
+    align-items:center;
+    width:100%;
+    form{
+      width:100%;
+    }
+    .export{
+      width:150px;
+      height:45px;
+      border-radius: 7px;
+      border:1px solid #aac;
+      background-color:#73f57b;
+      color:#000;
+    }
+  }
 }
 
 input{
