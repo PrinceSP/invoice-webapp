@@ -12,12 +12,11 @@ const Login = (props) => {
   const password = useRef()
   const [hide,setHide] = useState(true)
 
-  const {isFetching, dispatch} = useContext(AuthContext);
+  const {isFetching, dispatch, error} = useContext(AuthContext);
   const submit=(e)=>{
     e.preventDefault()
     loginCall({username:username.current.value,password:password.current.value},dispatch)
   }
-
   return (
     <div id="login-container">
       <div className="header">
@@ -37,7 +36,7 @@ const Login = (props) => {
           <div className="password">
             <label>Password</label>
             {hide ? <VisibilityIcon height={20} onClick={()=>setHide(false)} style={{position:'absolute',right:10,top:33,cursor:'pointer'}}/> : <VisibilityOffIcon height={20} onClick={()=>setHide(true)} style={{position:'absolute',right:10,top:33,cursor:'pointer'}}/>}
-            <Link className="link" to="/login">lupa sandi?</Link>
+            <Link className="link" to="/forgotPassword">lupa sandi?</Link>
           </div>
           <input placeholder="Enter your password" ref={password} type={hide===true?"password":"text"} required/>
           <Button className="login" name={isFetching ? "Loading..." : "Masuk"} type="submit"/>

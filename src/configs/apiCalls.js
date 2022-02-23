@@ -13,7 +13,7 @@ export const loginCall = async (userCredentials,dispatch)=>{
     if (res.message === 'success login') {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.datas });
     } else {
-      console.log(res);
+      dispatch({type:"LOGIN_FAILURE", payload: res})
     }
   }catch (e){
     return e;

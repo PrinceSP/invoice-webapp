@@ -1,6 +1,5 @@
 import React,{useState,useContext,useEffect,useRef} from 'react'
 import {TopBar,SideBar,Button,Input,Gap,CheckBox,DetailsNote} from '../../components'
-import "./myNote.scss"
 import {notePostCalls} from '../../configs/apiCalls'
 import {AuthContext} from '../../context/AuthContext'
 import DatePicker from "react-datepicker";

@@ -5,5 +5,6 @@ import Login from './login'
 import Register from './register'
 import Profile from './profile'
 import MyNotes from './myNote'
+import ForgotPasswordPage from './forgotPassword'
 
-export {Home,UserLists,NotePage,Login,Register,Profile,MyNotes}
+export {Home,UserLists,NotePage,Login,Register,Profile,MyNotes,ForgotPasswordPage}

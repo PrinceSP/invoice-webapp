@@ -29,7 +29,7 @@
       border-radius:6px;
       height:42px;
       width:110px;
-      background-color:#4F74F9;
+      background-color:#48AD79;
       font-size:1em;
     }
   }
@@ -45,15 +45,9 @@
     align-items: center;
 
     form{
-      // position: absolute;
-      // top:0;
-      // right:0;
       height:100%;
-      // width:35.315rem;
       width:100%;
       background: #FFFFFF;
-      // box-shadow: -5px 0px 25px rgba(36, 255, 0, 0.53);
-      // border-radius: 25px 0px 0px 25px;
       border-radius:4px;
       padding: 0 1rem 0rem 1rem;
       ul{
@@ -111,7 +105,6 @@
   .handleFilter{
     display: flex;
     align-items:center;
-    // justify-content: space-between;
     width:100%;
     form{
       width:100%;
@@ -121,8 +114,10 @@
       height:45px;
       border-radius: 7px;
       border:1px solid #aac;
-      background-color:#73f57b;
-      color:#000;
+      background-color:#4F44FD;
+      color:#fff;
+      cursor:pointer;
+      font-size: 0.975rem;
     }
   }
 }
