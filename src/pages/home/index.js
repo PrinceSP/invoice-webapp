@@ -5,7 +5,6 @@ import {AuthContext} from '../../context/AuthContext'
 
 const Home = (props) => {
   const {user} = useContext(AuthContext)
-
   const name = JSON.stringify(user.fullname)
   const username = typeof name==="string" ? name.split(" ")[0] : name
   return (

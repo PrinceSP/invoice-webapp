@@ -15,7 +15,11 @@ const Login = (props) => {
   const {isFetching, dispatch, error} = useContext(AuthContext);
   const submit=(e)=>{
     e.preventDefault()
-    loginCall({username:username.current.value,password:password.current.value},dispatch)
+    const user = {
+      username:username.current.value,
+      password:password.current.value
+    }
+    loginCall(user,dispatch)
   }
   return (
     <div id="login-container">
@@ -29,8 +33,10 @@ const Login = (props) => {
         </div>
       </div>
       <div className="signin-component">
+
         <h1>Sign In</h1>
         <form onSubmit={submit}>
+          {isFetching&&<p>{error.message}</p>}
           <label>Username</label>
           <input placeholder="Enter your username" ref={username} required/>
           <div className="password">

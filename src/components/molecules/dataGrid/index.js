@@ -48,17 +48,6 @@ const DatasGrid = ({name=[],classes=[],items}) => {
     },
   ];
 
-  // const rows = [
-  //   { id: 1, name: 'Snow', email: 'Jon@gmail.com'},
-  //   { id: 2, name: 'Lannister', email: 'Cersei@gmail.com'},
-  //   { id: 3, name: 'Lannister', email: 'Jaime@gmail.com'},
-  //   { id: 4, name: 'Stark', email: 'Arya@gmail.com'},
-  //   { id: 5, name: 'Targaryen', email: 'Daenerys@gmail.com'},
-  //   { id: 6, name: 'Melisandre', email: 'ladymelisandre@gmail.com'},
-  //   { id: 7, name: 'Clifford', email: 'Ferrara@gmail.com'},
-  //   { id: 8, name: 'Frances', email: 'Rossini@gmail.com'},
-  //   { id: 9, name: 'Roxie', email: 'Harvey@gmail.com'},
-  // ];
   return (
     <div style={{ height: 450, width: '100%' }}>
       <DataGrid

@@ -38,6 +38,7 @@ const Register = (props) => {
     email.current.value=""
     profilePicture.current.value=""
     password.current.value=""
+    passwordConfirm.current.value=""
   }
   return (
     <div id="register-container">
@@ -56,31 +57,31 @@ const Register = (props) => {
           <div className="inputs-container">
             <div className="input-item">
               <label>Nama Lengkap</label>
-              <input placeholder="dinda gledis mamahit" ref={fullname}/>
+              <input placeholder="dinda gledis mamahit" ref={fullname} required/>
             </div>
             <div className="input-item">
               <label>Nama Pengguna</label>
-              <input placeholder="dindagledis1228" ref={username}/>
+              <input placeholder="dindagledis1228" ref={username} required/>
             </div>
           </div>
           <div className="inputs-container">
             <div className="input-item">
               <label>Email</label>
-              <input placeholder="Masukkan email" ref={email}/>
+              <input placeholder="Masukkan email" ref={email} required/>
             </div>
             <div className="input-item">
               <label>Alamat</label>
-              <input placeholder="Masukkan alamat" ref={profilePicture}/>
+              <input placeholder="Masukkan alamat" ref={profilePicture} required/>
             </div>
           </div>
           <div className="inputs-container">
             <div className="input-item">
               <label>Kata Sandi</label>
-              <input placeholder="Masukkan username" ref={password}/>
+              <input placeholder="Masukkan username" ref={password} required/>
             </div>
             <div className="input-item">
               <label>Konfirmasi kata Sandi</label>
-              <input placeholder="Masukkan fullname" ref={passwordConfirm}/>
+              <input placeholder="Masukkan fullname" ref={passwordConfirm} required/>
             </div>
           </div>
           <Button type="submit" className="register" name="Daftar"/>
